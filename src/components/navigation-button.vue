@@ -30,7 +30,7 @@
 <script>
 
 export default {
-    name: 'navigation-button'
+    name: 'navigation-button.component'
 }
 
 </script>
