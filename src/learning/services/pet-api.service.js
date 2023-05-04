@@ -11,7 +11,7 @@ export class PetApiService {
         return http.delete(`/user/${id}`);
     }
     getWorkers(){
-        return http.get('/worker');
+        return http.get('/workers');
     }
 
 }

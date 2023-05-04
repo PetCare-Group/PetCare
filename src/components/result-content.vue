@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { PetApiService} from "@/pets/services/pet-api.service";
+import { PetApiService} from "@/learning/services/pet-api.service";
 export default {
     name: "result-content",
     data() {
