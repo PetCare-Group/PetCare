@@ -5,7 +5,7 @@
   <div class="flex flex-wrap justify-content-between gap-4">
     <FilterContent />
 
-    <ResultContent class="mr-6" />
+    <result-content class="mr-6" />
   </div>
 
   <FooterContent />
@@ -17,7 +17,7 @@ import FilterContent from "@/components/filter-content.component.vue";
 import HeaderContent from "@/components/header-content.component.vue";
 import SearchBarContent from "@/components/search-bar-content.vue";
 import ResultContent from "@/components/result-content.vue";
-import { TutorialsApiService } from "@/learning/services/tutorials-api.service";
+import { PetApiService } from "@/learning/services/pet-api.service";
 export default {
   name: "App",
   components: {
@@ -31,7 +31,7 @@ export default {
     return {
       articles: Array,
       errors: [],
-      newsApi: new TutorialsApiService(),
+      newsApi: new PetApiService(),
     };
   },
   created() {
