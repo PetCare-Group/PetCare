@@ -66,101 +66,89 @@
 
 
   ],
-  "worker": [
-    {
-      "id": 1,
-      "name": "Jorge",
-      "surname": "rodriguez perez",
-      "email": "jorgerp@gmail.com",
-      "birthday": "13-03-2003",
-      "gender": "M",
-      "direction": "pueblo libre",
-      "description": "hola, soy jorge y tengo un perrito. Tengo experiencia paseando mascotas  ",
-      "preferences": {
-        "animal": [
-          "cat",
-          "dog"
-        ],
-        "medicine": false,
-        "animal_weight": [
-          "0-5",
-          "5-15"
+  "workers": [
+   
+      {
+        "id": 1,
+        "name": "Jorge",
+        "surname": "rodriguez perez",
+        "email": "jorgerp@gmail.com",
+        "birthday": "13-03-2003",
+        "gender": "M",
+        "type": {"walker": 12, "vaterinaario":20},
+        "direction": "pueblo libre",
+        "description": "hola, soy jorge y tengo un perrito. Tengo experiencia paseando mascotas  ",
+        "preferences": {
+          "animal": [
+            "cat",
+            "dog"
+          ],
+          "medicine": false,
+          "animal_weight": [
+            "0-5",
+            "5-15"
+          ]
+        },
+        "day": [
+          "L",
+          "Ma",
+          "Mi",
+          "Ju",
+          "Vi"
         ]
       },
-      "day": [
-        "L",
-        "Ma",
-        "Mi",
-        "Ju",
-        "Vi"
-      ]
-    },
-    {
-    "id": 2,
-    "name": "Xiomara",
-    "surname": "caballero dulanto",
-    "email": "xiomaracd@gmail.com",
-    "birthday": "24-04-2003",
-    "gender": "F",
-    "direction": "pueblo libre",
-    "description": " Tengo experiencia paseando mascotas",
-    "preferences": {
-      "animal": ["dog"],
-      "medicine": true,
-      "animal_weight": ["0-5","5-15","15-30"]
-    },
-    "day": ["Mi","Ju","Vi"]
-
-    },
-    {
-      "id": 3,
-      "name": "Juan",
-      "surname": "arista jimenez",
-      "email": "juanaj@gmail.com",
-      "birthday": "3-09-2000",
-      "gender": "M",
+      {
+      "id": 2,
+      "name": "Xiomara",
+      "surname": "caballero dulanto",
+      "email": "xiomaracd@gmail.com",
+      "birthday": "24-04-2003",
+      "gender": "F",
       "direction": "pueblo libre",
-      "description": "Tengo experiencia paseando mascotas  ",
+      "description": " Tengo experiencia paseando mascotas",
       "preferences": {
-        "animal": ["cat","dog"],
+        "animal": ["dog"],
         "medicine": true,
-        "animal_weight": ["0-5"]
+        "animal_weight": ["0-5","5-15","15-30"]
       },
-      "day": ["L","Ma","Mi","Ju","Vi"]
-    }
+      "day": ["Mi","Ju","Vi"]
+  
+      },
+      {
+        "id": 3,
+        "name": "Juan",
+        "surname": "arista jimenez",
+        "email": "juanaj@gmail.com",
+        "birthday": "3-09-2000",
+        "gender": "M",
+        "direction": "pueblo libre",
+        "description": "Tengo experiencia paseando mascotas  ",
+        "preferences": {
+          "animal": ["cat","dog"],
+          "medicine": true,
+          "animal_weight": ["0-5"]
+        },
+        "day": ["L","Ma","Mi","Ju","Vi"]
+      },{
+        "id": 3,
+        "name": "Juan",
+        "surname": "arista jimenez",
+        "email": "juanaj@gmail.com",
+        "birthday": "3-09-2000",
+        "gender": "M",
+        "direction": "pueblo libre",
+        "description": "Tengo experiencia paseando mascotas  ",
+        "preferences": {
+          "animal": ["cat","dog"],
+          "medicine": true,
+          "animal_weight": ["0-5"]
+        },
+        "day": ["L","Ma","Mi","Ju","Vi"]
+      }
+  
+    ]
+    
+  
+  
+  }
 
-  ],
-  "walker": [
-
-  {
-    "id": 1,
-    "worker_id": 1,
-    "price_per_service": 14
-
-
-  },
-    {
-      "id": 2,
-      "worker_id": 2,
-      "price_per_service": 10
-    }
-
-
-  ],
-  "trainer": [
-    {
-      "id": 1,
-      "worker_id":2,
-      "price_per_service": 20
-
-    },
-
-    {
-      "id": 2,
-      "worker_id": 3,
-      "price_per_service": 25
-    }
-
-
-  ]
-}
