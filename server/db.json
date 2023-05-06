@@ -76,7 +76,10 @@
         "birthday": "13-03-2003",
         "gender": "M",
         "type": {"walker": 12, "vaterinaario":20},
-        "direction": "pueblo libre",
+        "direction": "Lima, pueblo libre",
+        "estrellas": 3,
+        "valoraciones": 107,
+        "servicios_realizados": 70,
         "description": "hola, soy jorge y tengo un perrito. Tengo experiencia paseando mascotas  ",
         "preferences": {
           "animal": [

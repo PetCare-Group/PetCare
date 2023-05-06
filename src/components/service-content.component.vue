@@ -7,11 +7,12 @@
                     <pv-image src="https://primefaces.org/cdn/primevue/images/galleria/galleria7.jpg" alt="Image" width="160" preview/>
                 <!-- </div> -->
                 <div class="info__profile__data">
-                    <p class="text-yellow-500 font-bold text-lg">Lima, Pueblo libre</p>
+                    <p v-if="workers && workers.direction" class="text-yellow-500 font-bold text-lg">{{ workers.direction }}</p>
+                    
                     <div >
-                        <p class="text-yellow-500 font-bold text-lg">Valoraciones:</p>
+                        <p v-if="workers && workers.valoraciones" class="text-yellow-500 font-bold text-lg">Valoraciones: {{ workers.valoraciones }}</p>
                     </div>
-                    <p class="text-yellow-500 font-bold text-lg">Servicios realizados: 68</p>
+                    <p v-if="workers && workers.servicios_realizados"  class="text-yellow-500 font-bold text-lg">Servicios realizados: {{ workers.servicios_realizados }}</p>
                 </div>
                 <div class="info__profile__services  ">
                     <p class="text-yellow-500 font-bold text-lg">Servicios</p>
@@ -23,10 +24,10 @@
                 
             </div>
             <div class="servicio-info__about">
-                <h3 class="text-yellow-500 font-medium">Sobre Andres</h3>
+                <h3 v-if="workers && workers.name" class="text-yellow-500 font-medium">Sobre {{ workers.name }}</h3>
                 <div class="servicio-info__about__message">
 
-                    <p>¡Hola! Mi nombre es Xiomara y soy la madre de Joaquim, un perro de tamaño mediano que es simplemente lo más preciado de mi vida. Si me eliges para cuidar de tu hijo, además de ganar un nuevo amigo (yo) también ganará un nuevo primo (Joaquim)...</p>
+                    <p v-if="workers && workers.description"  >{{ workers.description }}</p>
                     <p class="text-yellow-500">Continuar leyendo</p>
                 </div>
                 <div class="servicio-info__about__detail">
@@ -86,12 +87,12 @@
             <div class="tarifa">
                 <h3 class="text-yellow-500">Tarifas</h3>
                 <div>
-                    <p class="text-yellow-500">Adiestramiento</p>
-                    <p class="text-yellow-500">S/20.0</p>
+                    <p   class="text-yellow-500">Veterianio</p>
+                    <p v-if="workers && workers.type.vaterinaario"  class="text-yellow-500">S/{{workers.type.vaterinaario  }}.0</p>
                 </div>
                 <div>
                     <p class="text-yellow-500">Paseador</p>
-                    <p class="text-yellow-500">S/10.0</p>
+                    <p v-if="workers && workers.type" class="text-yellow-500">S/{{ workers.type.walker }}.0</p>
                 </div>
                 <pv-button label="Reservar" severity="warning" raised />
 
@@ -114,8 +115,28 @@ const date = ref();
 </script>
 
 <script>
+
+import { PetApiService} from "@/learning/services/pet-api.service";
+
 export default {
 name: "service-content.component",
+data() {
+        return {
+            id: null,
+            workers: null,
+            worker: {},
+            petService: null,
+        }
+    },
+    created() {
+        this.petService = new PetApiService();
+        this.petService.getWorkers().then((response) => {
+            this.workers = response.data;
+            this.workers = this.workers[0];
+            console.log(this.workers);
+        })
+    }
+
 };
 </script>
 

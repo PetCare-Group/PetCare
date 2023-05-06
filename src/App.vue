@@ -1,8 +1,8 @@
 <template>
   <HeaderContent />
 
-  <SearchBarContent />
   <serviceContentComponent/>
+  <!-- <SearchBarContent />
    <SearchBarContent />
   <div class="flex flex-wrap justify-content-between gap-4">
     <FilterContent />
@@ -12,7 +12,7 @@
   <div>
   <result-content />
   <help-center />
-  </div>
+  </div> -->
 
   <FooterContent />
 </template>
