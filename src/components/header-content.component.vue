@@ -1,22 +1,45 @@
 <template>
-  <div class="sticky z-1 surface-0">
-    <pv-menubar :model="items">
-      <template #start>
-        <img
-          src="./img/Hero_img.png"
-          alt="logo de pagina"
-          height="40"
-          class="mr-2"
-        />
-        <img alt="logo" src="./img/Logo.png" height="40" class="mr-2" />
-      </template>
-      <template #end>
-        <div class="flex justify-end items-center">
-          <pv-menubar :model="item" />
-        </div>
-      </template>
-    </pv-menubar>
-  </div>
+  <pv-toolbar class="surface-0">
+    <template #start>
+      <img
+        src="./img/Hero_img.png"
+        alt="logo de pagina"
+        height="40"
+        class="mr-2"
+      />
+      <img alt="logo" src="./img/Logo.png" height="40" class="mr-2" />
+    </template>
+    <template #center>
+      <router-link v-for="i in buttons" :to="i.to">
+        <pv-button class="surface-0 text-orange-500 mr-3 ml-3">
+          {{ i.label }}</pv-button
+        >
+      </router-link>
+    </template>
+
+    <template #end>
+      <div class="flex justify-end items-center">
+        <pv-menubar :model="item">
+          <router-link
+            v-for="i in item.items"
+            :to="i.to"
+            custom
+            v-slot="{ navigate, href }"
+            :key="i.label"
+          >
+            <pv-button
+              class="p-button-text text-white"
+              :href="href"
+              @click="navigate"
+              >{{ i.label }}</pv-button
+            >
+          </router-link>
+        </pv-menubar>
+      </div>
+    </template>
+  </pv-toolbar>
+
+  <RouterView />
 </template>
 
 <script setup>
@@ -52,6 +75,7 @@ const item = ref([
       {
         label: "Mis mascotas",
         icon: "pi pi-fw pi-align-right",
+        to: "/mypets",
       },
       {
         label: "Mis servicios",
@@ -69,14 +93,16 @@ const item = ref([
   },
 ]);
 
-const items = ref([
+const buttons = ref([
   {
     label: "Inicio",
     icon: "pi pi-fw pi-file",
+    to: "/",
   },
   {
     label: "Buscar un servicio",
     icon: "pi pi-fw pi-pencil",
+    to: " ",
     items: [
       {
         label: "Adiestrador",
@@ -95,9 +121,11 @@ const items = ref([
   {
     label: "Publicar un servicio",
     icon: "pi pi-fw pi-user",
+    to: "/petlist",
   },
   {
     label: "Ayuda",
+    to: "/help",
     icon: "pi pi-fw pi-calendar",
   },
 ]);
