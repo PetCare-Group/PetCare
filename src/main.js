@@ -35,6 +35,10 @@ import ToggleButton from "primevue/togglebutton";
 import Menubar from "primevue/menubar";
 import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
+import Image from 'primevue/image';
+import Calendar from 'primevue/calendar';
+
+
 const app = createApp(App);
 
 app.use(createPinia());
@@ -64,4 +68,6 @@ app.component("pv-slider", Slider);
 app.component("pv-toogle-buttom", ToggleButton);
 app.component("pv-menubar", Menubar);
 app.component("pv-dataview", DataView);
+app.component("pv-image", Image);
+app.component("pv-calendar", Calendar);
 app.mount("#app");
