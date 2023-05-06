@@ -1,19 +1,13 @@
 <template>
   <HeaderContent />
 
-  <serviceContentComponent/>
-  <!-- <SearchBarContent />
-   <SearchBarContent />
-  <div class="flex flex-wrap justify-content-between gap-4">
+  <!--<SearchBarContent />
+  <div class="flex flex-wrap justify-content-between w-10 mx-auto mt-4">
     <FilterContent />
 
-    <result-content class="mr-6" />
+    <ResultContent class="" />
   </div>
-  <div>
-  <result-content />
-  <help-center />
-  </div> -->
-
+  -->
   <FooterContent />
 </template>
 
@@ -23,13 +17,8 @@ import FilterContent from "@/components/filter-content.component.vue";
 import HeaderContent from "@/components/header-content.component.vue";
 import SearchBarContent from "@/components/search-bar-content.vue";
 import ResultContent from "@/components/result-content.vue";
-
-import serviceContentComponent from "@/components/service-content.component.vue";
-import { PetApiService } from "@/learning/services/pet-api.service";
-
-import HelpCenter from "@/components/help-center.vue"
-
-
+import { TutorialsApiService } from "@/learning/services/tutorials-api.service";
+import mypets from "@/views/mypets.vue";
 export default {
   name: "App",
   components: {
@@ -38,14 +27,13 @@ export default {
     HeaderContent,
     SearchBarContent,
     ResultContent,
-    HelpCenter,
-    serviceContentComponent
+    mypets,
   },
   data() {
     return {
       articles: Array,
       errors: [],
-      newsApi: new PetApiService(),
+      newsApi: new TutorialsApiService(),
     };
   },
   created() {
