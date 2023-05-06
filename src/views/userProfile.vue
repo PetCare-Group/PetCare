@@ -24,7 +24,7 @@
                 <pv-inputext class="txt1"
                              v-model="value1"
                              type="text"
-                             placeholder="Nombre"
+                             placeholder="Carmen"
                              :style="{
                 'border-radius': '7px',
                 'background-color': '#FFF389',
@@ -39,7 +39,7 @@
                 <pv-inputext class="txt1"
                              v-model="value1"
                              type="text"
-                             placeholder="Apellido"
+                             placeholder="Dueñas Serna"
                              :style="{
                 'border-radius': '7px',
                 'background-color': '#FFF389',
@@ -56,7 +56,7 @@
                 <pv-inputext class="txt1"
                              v-model="value1"
                              type="text"
-                             placeholder="Teléfono"
+                             placeholder="982399406"
                              :style="{
                 'border-radius': '7px',
                 'background-color': '#FFF389',
@@ -71,7 +71,7 @@
                 <pv-inputext class="txt1"
                              v-model="value1"
                              type="text"
-                             placeholder="DNI"
+                             placeholder="10725572"
                              :style="{
                 'border-radius': '7px',
                 'background-color': '#FFF389',
@@ -87,7 +87,7 @@
             <pv-inputext class="txt1"
                          v-model="value1"
                          type="text"
-                         placeholder="Correo electrónico"
+                         placeholder="carmenduenasserna@gmail.com"
                          :style="{
                 'width': '110%',
                 'border-radius': '7px',
@@ -103,7 +103,7 @@
             <pv-inputext class="txt1"
                          v-model="value1"
                          type="text"
-                         placeholder="Contraseña"
+                         placeholder="******"
                          :style="{
                 'width': '110%',
                 'border-radius': '7px',
