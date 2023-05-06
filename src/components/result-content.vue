@@ -5,10 +5,10 @@
 
 
                 <pv-button
-                        severity="warning"
-                        outlined
-                        class="p-button p-component p-button-rounded p-button-text-icon-left"
-                        :style="{
+                  severity="warning"
+                  outlined
+                  class="p-button p-component p-button-rounded p-button-text-icon-left"
+                  :style="{
         width: '120%',
         height: '80%',
         'border-radius': '15px',
@@ -16,10 +16,10 @@
       }"
                 >
                     <img
-                            src="src\assets\logo.svg"
-                            class="user-avatar"
-                            alt="Avatar de usuario"
-                            width="20%"
+                      src="src\assets\logo.svg"
+                      class="user-avatar"
+                      alt="Avatar de usuario"
+                      width="20%"
                     />
                     <div class="user-info">
                         <div class="user-name">{{ worker.name }}</div>
