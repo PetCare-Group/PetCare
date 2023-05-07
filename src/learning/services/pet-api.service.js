@@ -1,6 +1,6 @@
 import http from "../../core/services/http-common";
 
-export class TutorialsApiService {
+export class PetApiService {
   getUser() {
     return http.get("/user");
   }
@@ -29,7 +29,7 @@ export class TutorialsApiService {
     return http.get(`/workers?type=${type}`);
   }
 
-  GetWorkers() {
+  getWorkers() {
     return http.get(`/workers`);
   }
 }

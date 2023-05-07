@@ -17,7 +17,7 @@ import FilterContent from "@/components/filter-content.component.vue";
 import HeaderContent from "@/components/header-content.component.vue";
 import SearchBarContent from "@/components/search-bar-content.vue";
 import ResultContent from "@/components/result-content.vue";
-import { TutorialsApiService } from "@/learning/services/tutorials-api.service";
+import { PetApiService } from "./learning/services/pet-api.service";
 import mypets from "@/views/mypets.vue";
 export default {
   name: "App",
@@ -33,11 +33,11 @@ export default {
     return {
       articles: Array,
       errors: [],
-      newsApi: new TutorialsApiService(),
+      newsApi: new PetApiService(),
     };
   },
   created() {
-    console.log("created");
+    // console.log("created");
     this.getUsers();
   },
   methods: {
@@ -47,7 +47,7 @@ export default {
         .getUser()
         .then((response) => {
           this.articles = response.data;
-          console.log(response.data);
+          // console.log(response.data);
         })
         .catch((e) => {
           this.errors.push(e);

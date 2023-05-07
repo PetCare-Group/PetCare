@@ -133,7 +133,7 @@ data() {
         this.petService.getWorkers().then((response) => {
             this.workers = response.data;
             this.workers = this.workers[0];
-            console.log(this.workers);
+            // console.log(this.workers);
         })
     }
 

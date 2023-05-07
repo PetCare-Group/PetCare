@@ -241,7 +241,7 @@
 </template>
 
 <script>
-import { TutorialsApiService } from "@/learning/services/tutorials-api.service";
+import { PetApiService } from "@/learning/services/pet-api.service";
 import { FilterMatchMode } from "primevue/api";
 export default {
   name: "pet-list.component",
@@ -264,12 +264,12 @@ export default {
   },
 
   created() {
-    this.petsService = new TutorialsApiService();
+    this.petsService = new PetApiService();
     this.petsService.getPet().then((response) => {
       this.pets = response.data;
-      console.log(this.pets);
+      // console.log(this.pets);
       this.pets.forEach((pet) => this.getDisplayablePet(pet));
-      console.log(this.pets);
+      // console.log(this.pets);
     });
     this.initFilters();
   },
@@ -300,17 +300,17 @@ export default {
       this.submitted = false;
     },
     findIndexById(id) {
-      console.log(`current id: ${id}`);
+      // console.log(`current id: ${id}`);
       return this.pets.findIndex((pet) => pet.id === id);
     },
     savePet() {
       this.submitted = true;
       if (this.pet.name.trim()) {
         if (this.pet.id) {
-          console.log(this.pet);
+          // console.log(this.pet);
           this.pet = this.getStorablePet(this.pet);
           this.petsService.update(this.pet.id, this.pet).then((response) => {
-            console.log(response.data.id);
+            // console.log(response.data.id);
             this.pets[this.findIndexById(response.data.id)] =
               this.getDisplayablePet(response.data);
             this.$toast.add({
@@ -319,11 +319,11 @@ export default {
               detail: "Pet Updated",
               life: 3000,
             });
-            console.log(response);
+            // console.log(response);
           });
         } else {
           this.pet.id = 0;
-          console.log(this.pet);
+          // console.log(this.pet);
           this.pet = this.getStorablePet(this.pet);
           this.petsService.create(this.pet).then((response) => {
             this.pet = this.getDisplayablePet(response.data);
@@ -334,7 +334,7 @@ export default {
               detail: "Pet Created",
               life: 3000,
             });
-            console.log(response);
+            // console.log(response);
           });
         }
         this.petDialog = false;
@@ -342,11 +342,11 @@ export default {
       }
     },
     editPet(pet) {
-      console.log(pet);
+      // console.log(pet);
       this.pet = { ...pet };
-      console.log(this.pet);
+      // console.log(this.pet);
       this.petDialog = true;
-      console.log(this.petDialog);
+      // console.log(this.petDialog);
     },
     confirmDeletePet(pet) {
       this.pet = pet;
@@ -363,7 +363,7 @@ export default {
           detail: "Pet Deleted",
           life: 3000,
         });
-        console.log(response);
+        // console.log(response);
       });
     },
     exportToCSV() {
@@ -376,7 +376,7 @@ export default {
       this.selectedpets.forEach((pet) => {
         this.petsService.delete(pet.id).then((response) => {
           this.pets = this.pets.filter((t) => t.id !== pet.id);
-          console.log(response);
+          // console.log(response);
         });
       });
       this.deletePetsDialog = false;

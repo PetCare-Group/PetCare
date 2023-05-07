@@ -14,4 +14,3 @@ import ResultContent from "@/components/result-content.vue";
     </div>
   </main>
 </template>
-

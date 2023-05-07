@@ -44,7 +44,7 @@ export default {
         this.petService = new PetApiService();
         this.petService.getWorkers().then((response) => {
             this.workers = response.data;
-            console.log(this.workers);
+            // console.log(this.workers);
         })
     }
 };
