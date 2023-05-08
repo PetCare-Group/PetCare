@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { PetApiService } from "@/learning/services/tutorials-api.service";
+import { PetApiService } from "@/learning/services/pet-api.service";
 export default {
   name: "helpCenterView",
   data() {
@@ -61,7 +61,7 @@ export default {
   },
   created() {
     this.petService = new PetApiService();
-    this.petService.GetWorkers().then((response) => {
+    this.petService.getWorkers().then((response) => {
       this.workers = response.data;
       // console.log(this.workers);
     });
