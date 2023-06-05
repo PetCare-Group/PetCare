@@ -22,7 +22,7 @@
                       width="20%"
                     />
                     <div class="user-info">
-                        <div class="user-name">{{ worker.name }}</div>
+                        <div class="user-name">{{ worker.user.firstName + " " +worker.user.lastName }}</div>
                         <div class="user-details">
                             <div class="user-distance">{{ worker.direction }}</div>
                             <div class="user-stars">
@@ -58,8 +58,9 @@ export default {
         this.petService = new PetApiService();
         this.petService.getWorkers().then((response) => {
             this.workers = response.data;
-            // console.log(this.workers);
+            console.log(this.workers);
         })
+        // console.log(workers)
     }
 };
 </script>

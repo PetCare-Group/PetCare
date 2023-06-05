@@ -6,7 +6,7 @@ export class PetApiService {
   }
 
   getPet() {
-    return http.get("/dogs");
+    return http.get("/pet");
   }
 
   findUserByMail(email) {
@@ -14,15 +14,15 @@ export class PetApiService {
   }
 
   create(data) {
-    return http.post("/dogs", data);
+    return http.post("/pet", data);
   }
 
-  update(id, data) {
-    return http.put(`/dogs/${id}`, data);
+  update(name, data) {
+    return http.put(`/pet/${name}`, data);
   }
 
   delete(id) {
-    return http.delete(`/dogs/${id}`);
+    return http.delete(`/pet/${id}`);
   }
 
   GetUSerService(type) {
@@ -30,6 +30,6 @@ export class PetApiService {
   }
 
   getWorkers() {
-    return http.get(`/workers`);
+    return http.get(`/tutorials`);
   }
 }

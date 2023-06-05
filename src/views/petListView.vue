@@ -267,7 +267,7 @@ export default {
     this.petsService = new PetApiService();
     this.petsService.getPet().then((response) => {
       this.pets = response.data;
-      // console.log(this.pets);
+      console.log(this.pets);
       this.pets.forEach((pet) => this.getDisplayablePet(pet));
       // console.log(this.pets);
     });
@@ -286,7 +286,8 @@ export default {
         id: displayablePet.id,
         name: displayablePet.name,
         description: displayablePet.description,
-        castrado: displayablePet.castrado.value == "no castrado"? false : true,
+        userId: 1,
+        castrado: displayablePet.castrado.value == "no castrado"?0 : 1,
 
       };
     },
@@ -307,10 +308,10 @@ export default {
       this.submitted = true;
       if (this.pet.name.trim()) {
         if (this.pet.id) {
-          // console.log(this.pet);
+          console.log(this.pet);
           this.pet = this.getStorablePet(this.pet);
-          this.petsService.update(this.pet.id, this.pet).then((response) => {
-            // console.log(response.data.id);
+          this.petsService.update(this.pet.name, this.pet).then((response) => {
+              console.log(response.data.id);
             this.pets[this.findIndexById(response.data.id)] =
               this.getDisplayablePet(response.data);
             this.$toast.add({
@@ -322,12 +323,17 @@ export default {
             // console.log(response);
           });
         } else {
-          this.pet.id = 0;
+          console.log("22222222222");
+          this.pet.id = 1;
           // console.log(this.pet);
           this.pet = this.getStorablePet(this.pet);
+          console.log(this.pet)
           this.petsService.create(this.pet).then((response) => {
+            console.log("entre")
             this.pet = this.getDisplayablePet(response.data);
+            console.log(this.pet);
             this.pets.push(this.pet);
+            console.log(this.pets);
             this.$toast.add({
               severity: "success",
               summary: "Successful",
