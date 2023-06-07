@@ -1,14 +1,15 @@
 <template>
+  <HeaderContent />
   <div class="container">
     <h1 class="main-title">Solucionador de problemas</h1>
 
     <div class="buttons-container">
       <pv-button class="custom-button" label="Chat online" severity="warning" />
       <pv-button
-        class="custom-button"
-        label="Realizar consulta"
-        severity="warning"
-        @click="showForm = !showForm"
+          class="custom-button"
+          label="Realizar consulta"
+          severity="warning"
+          @click="showForm = !showForm"
       />
     </div>
     <div v-if="showForm">
@@ -16,19 +17,19 @@
         <div>
           <h3 class="section-title">Título de consulta</h3>
           <pv-input-text
-            class="input-title"
-            v-model="value2"
-            type="text"
-            placeholder="Título de consulta"
+              class="input-title"
+              v-model="value1"
+              type="text"
+              placeholder="Título de consulta"
           />
         </div>
         <div>
           <h3 class="section-title">Descripción</h3>
           <pv-input-text
-            class="input-description"
-            v-model="value2"
-            type="text"
-            placeholder="Descripción"
+              class="input-description"
+              v-model="value2"
+              type="text"
+              placeholder="Descripción"
           />
         </div>
       </div>
@@ -36,19 +37,23 @@
         <h3 class="section-title attach-images-title">Adjuntar imágenes</h3>
         <i class="pi pi-plus-circle custom-icon"></i>
         <pv-button
-          class="custom-button generate-button"
-          label="Generar consulta"
-          severity="warning"
+            class="custom-button generate-button"
+            label="Generar consulta"
+            severity="warning"
         />
       </div>
     </div>
   </div>
+  <FooterContent />
 </template>
 
 <script>
 import { PetApiService } from "@/learning/services/pet-api.service";
+import FooterContent from "@/components/footer-content.component.vue";
+import HeaderContent from "@/components/header-content.component.vue";
 export default {
   name: "helpCenterView",
+  components: {HeaderContent, FooterContent},
   data() {
     return {
       id: null,
@@ -56,6 +61,7 @@ export default {
       worker: {},
       petService: null,
       showForm: false,
+      value1: "",
       value2: "",
     };
   },

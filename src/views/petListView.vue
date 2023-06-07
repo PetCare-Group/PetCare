@@ -1,84 +1,85 @@
 <template>
+  <HeaderContent />
   <div>
     <div class="card">
       <pv-toolbar class="mb-4">
         <template #start>
           <pv-button
-            label="New"
-            icon="pi pi-plus"
-            class="p-button-success mr-2"
-            @click="openNew()"
+              label="New"
+              icon="pi pi-plus"
+              class="p-button-success mr-2"
+              @click="openNew()"
           />
           <pv-button
-            label="Delete"
-            icon="pi pi-trash"
-            class="p-button-danger"
-            @click="confirmDeleteSelected"
-            :disabled="!selectedpets || !selectedpets.length"
+              label="Delete"
+              icon="pi pi-trash"
+              class="p-button-danger"
+              @click="confirmDeleteSelected"
+              :disabled="!selectedpets || !selectedpets.length"
           />
         </template>
       </pv-toolbar>
       <pv-data-table
-        ref="dt"
-        :value="pets"
-        v-model:selection="selectedpets"
-        dataKey="id"
-        :paginator="true"
-        :rows="10"
-        :filters="filters"
-        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-        :rowsPerPageOptions="[5, 10, 25]"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} tutorials"
-        responsiveLayout="scroll"
+          ref="dt"
+          :value="pets"
+          v-model:selection="selectedpets"
+          dataKey="id"
+          :paginator="true"
+          :rows="10"
+          :filters="filters"
+          paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+          :rowsPerPageOptions="[5, 10, 25]"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} tutorials"
+          responsiveLayout="scroll"
       >
         <template #header>
           <div
-            class="table-header flex flex-column md:flex-row md:justify-content-between"
+              class="table-header flex flex-column md:flex-row md:justify-content-between"
           >
             <h5 class="mb-2 md:m-0 p-as-md-center text-xl">Manage Tutorials</h5>
             <span class="p-input-icon-left">
               <i class="pi pi-search" />
               <pv-input-text
-                v-model="filters['global'].value"
-                placeholder="Search..."
+                  v-model="filters['global'].value"
+                  placeholder="Search..."
               />
             </span>
           </div>
         </template>
 
         <pv-column
-          selectionMode="multiple"
-          style="width: 3rem"
-          :exportable="false"
+            selectionMode="multiple"
+            style="width: 3rem"
+            :exportable="false"
         ></pv-column>
         <pv-column
-          field="id"
-          header="Id"
-          :sortable="true"
-          style="min-width: 12rem"
+            field="id"
+            header="Id"
+            :sortable="true"
+            style="min-width: 12rem"
         ></pv-column>
         <pv-column
-          field="name"
-          header="Name"
-          :sortable="true"
-          style="min-width: 16rem"
+            field="name"
+            header="Name"
+            :sortable="true"
+            style="min-width: 16rem"
         ></pv-column>
         <pv-column
-          field="description"
-          header="Description"
-          :sortable="true"
-          style="min-width: 16rem"
+            field="description"
+            header="Description"
+            :sortable="true"
+            style="min-width: 16rem"
         ></pv-column>
         <pv-column
-          field="castrado"
-          header="Castrado"
-          :sortable="true"
-          style="min-width: 12rem"
+            field="castrado"
+            header="Castrado"
+            :sortable="true"
+            style="min-width: 12rem"
         >
           <template #body="slotProps">
             <pv-tag
-              v-if="slotProps.data.status === 'Castrado'"
-              severity="success"
+                v-if="slotProps.data.status === 'Castrado'"
+                severity="success"
             >
               {{ slotProps.data.status }}
             </pv-tag>
@@ -88,35 +89,35 @@
         <pv-column :exportable="false" style="min-width: 8rem">
           <template #body="slotProps">
             <pv-button
-              icon="pi pi-pencil"
-              class="p-button-text p-button-rounded"
-              @click="editPet(slotProps.data)"
+                icon="pi pi-pencil"
+                class="p-button-text p-button-rounded"
+                @click="editPet(slotProps.data)"
             />
             <pv-button
-              icon="pi pi-trash"
-              class="p-button-text p-button-rounded"
-              @click="confirmDeletePet(slotProps.data)"
+                icon="pi pi-trash"
+                class="p-button-text p-button-rounded"
+                @click="confirmDeletePet(slotProps.data)"
             />
           </template>
         </pv-column>
       </pv-data-table>
     </div>
     <pv-dialog
-      v-model:visible="petDialog"
-      :style="{ width: '450px' }"
-      header="Tutorial Information"
-      :modal="true"
-      class="p-fluid"
+        v-model:visible="petDialog"
+        :style="{ width: '450px' }"
+        header="Tutorial Information"
+        :modal="true"
+        class="p-fluid"
     >
       <div class="field mt-3">
         <span class="p-float-label">
           <pv-input-text
-            type="text"
-            id="name"
-            v-model.trim="pet.name"
-            required="true"
-            autofocus
-            :class="{ 'p-invalid': submitted && !pet.name }"
+              type="text"
+              id="name"
+              v-model.trim="pet.name"
+              required="true"
+              autofocus
+              :class="{ 'p-invalid': submitted && !pet.name }"
           />
           <label for="name">Title</label>
           <small class="p-error" v-if="submitted && !pet.name">
@@ -128,93 +129,93 @@
       <div class="field">
         <span class="p-float-label">
           <pv-textarea
-            id="description"
-            v-model="pet.description"
-            required="false"
-            rows="2"
-            cols="20"
+              id="description"
+              v-model="pet.description"
+              required="false"
+              rows="2"
+              cols="20"
           />
           <label for="description">Description</label>
         </span>
       </div>
       <div class="field">
         <pv-dropdown
-        id="castrado"
-        v-model="pet.castrado"
-        :options="statuses"
-        optionLabel="label"
-        :placeholder="statuses ? 'Select a Status' : ''"
-      >
+            id="castrado"
+            v-model="pet.castrado"
+            :options="statuses"
+            optionLabel="label"
+            :placeholder="statuses ? 'Select a Status' : ''"
+        >
 
-        <template #value="slotProps">
-          <div v-if="slotProps.value && slotProps.value.label">
+          <template #value="slotProps">
+            <div v-if="slotProps.value && slotProps.value.label">
         <span :class="'pet-badge status-' + slotProps.value.value">
           {{ slotProps.value.label }}
         </span>
-      </div>
+            </div>
 
-          <div v-else-if="slotProps.value && typeof slotProps.value === 'string'">
+            <div v-else-if="slotProps.value && typeof slotProps.value === 'string'">
             <span :class="'pet-badge status-' + slotProps.value.toLowerCase()">
               {{ slotProps.value }}
             </span>
-          </div>
-          <span v-else>
+            </div>
+            <span v-else>
             {{ slotProps.placeholder }}
           </span>
-        </template>
+          </template>
 
         </pv-dropdown>
       </div>
       <template #footer>
         <pv-button
-          :label="'Cancel'.toUpperCase()"
-          icon="pi pi-times"
-          class="p-button-text"
-          @click="hideDialog"
+            :label="'Cancel'.toUpperCase()"
+            icon="pi pi-times"
+            class="p-button-text"
+            @click="hideDialog"
         />
         <pv-button
-          :label="'Save'.toUpperCase()"
-          icon="pi pi-check"
-          class="p-button-text"
-          @click="savePet"
+            :label="'Save'.toUpperCase()"
+            icon="pi pi-check"
+            class="p-button-text"
+            @click="savePet"
         />
       </template>
     </pv-dialog>
 
     <pv-dialog
-      v-model:visible="deletePetDialog"
-      :style="{ width: '450px' }"
-      header="Confirm"
-      :modal="true"
+        v-model:visible="deletePetDialog"
+        :style="{ width: '450px' }"
+        header="Confirm"
+        :modal="true"
     >
       <div class="confirmation-content">
         <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
         <span v-if="pet">
           Are you sure you want to delete <b>{{ pet.name }}</b
-          >?
+        >?
         </span>
       </div>
       <template #footer>
         <pv-button
-          :label="'No'.toUpperCase()"
-          icon="pi pi-times"
-          class="p-button-text"
-          @click="deletePetDialog = false"
+            :label="'No'.toUpperCase()"
+            icon="pi pi-times"
+            class="p-button-text"
+            @click="deletePetDialog = false"
         />
         <pv-button
-          :label="'Yes'.toUpperCase()"
-          icon="pi pi-check"
-          class="p-button-text"
-          @click="deletePet"
+            :label="'Yes'.toUpperCase()"
+            icon="pi pi-check"
+            class="p-button-text"
+            @click="deletePet"
         />
       </template>
     </pv-dialog>
 
     <pv-dialog
-      v-model:visible="deletePetsDialog"
-      :style="{ width: '450px' }"
-      header="Confirm"
-      :modal="true"
+        v-model:visible="deletePetsDialog"
+        :style="{ width: '450px' }"
+        header="Confirm"
+        :modal="true"
     >
       <div class="confirmation-content">
         <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
@@ -224,27 +225,31 @@
       </div>
       <template #footer>
         <pv-button
-          :label="'No'.toUpperCase()"
-          icon="pi pi-times"
-          class="p-button-text"
-          @click="deletePetsDialog = false"
+            :label="'No'.toUpperCase()"
+            icon="pi pi-times"
+            class="p-button-text"
+            @click="deletePetsDialog = false"
         />
         <pv-button
-          :label="'Yes'.toUpperCase()"
-          icon="pi pi-check"
-          class="p-button-text"
-          @click="deleteSelectedPets"
+            :label="'Yes'.toUpperCase()"
+            icon="pi pi-check"
+            class="p-button-text"
+            @click="deleteSelectedPets"
         />
       </template>
     </pv-dialog>
   </div>
+  <FooterContent />
 </template>
 
 <script>
 import { PetApiService } from "@/learning/services/pet-api.service";
 import { FilterMatchMode } from "primevue/api";
+import HeaderContent from "@/components/header-content.component.vue";
+import FooterContent from "@/components/footer-content.component.vue";
 export default {
   name: "pet-list.component",
+  components: {FooterContent, HeaderContent},
   data() {
     return {
       pets: [],
@@ -277,8 +282,8 @@ export default {
   methods: {
     getDisplayablePet(pet) {
       pet.status = pet.castrado
-        ? this.statuses[0].label
-        : this.statuses[1].label;
+          ? this.statuses[0].label
+          : this.statuses[1].label;
       return pet;
     },
     getStorablePet(displayablePet) {
@@ -311,9 +316,9 @@ export default {
           console.log(this.pet);
           this.pet = this.getStorablePet(this.pet);
           this.petsService.update(this.pet.name, this.pet).then((response) => {
-              console.log(response.data.id);
+            console.log(response.data.id);
             this.pets[this.findIndexById(response.data.id)] =
-              this.getDisplayablePet(response.data);
+                this.getDisplayablePet(response.data);
             this.$toast.add({
               severity: "success",
               summary: "Successful",
