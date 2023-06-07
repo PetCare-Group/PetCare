@@ -1,6 +1,6 @@
 <template>
-  <HeaderContent />
 
+  <RouterView />
   <!--<SearchBarContent />
   <div class="flex flex-wrap justify-content-between w-10 mx-auto mt-4">
     <FilterContent />
@@ -8,7 +8,7 @@
     <ResultContent class="" />
   </div>
   -->
-  <FooterContent />
+
 </template>
 
 <script>
@@ -44,14 +44,14 @@ export default {
     // Fetch Articles for selected Source
     getUsers() {
       this.newsApi
-        .getUser()
-        .then((response) => {
-          this.articles = response.data;
-          // console.log(response.data);
-        })
-        .catch((e) => {
-          this.errors.push(e);
-        });
+          .getUser()
+          .then((response) => {
+            this.articles = response.data;
+            // console.log(response.data);
+          })
+          .catch((e) => {
+            this.errors.push(e);
+          });
     },
   },
 };
