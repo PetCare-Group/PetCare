@@ -85,6 +85,7 @@ const signup = (event) => {
         name.value = '';
         email.value = '';
         password.value = '';
+        role.value= '';
       })
       .catch(error => {
         console.error('Signup request error:', error);
