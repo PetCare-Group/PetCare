@@ -18,7 +18,8 @@
           <label for="password">Contraseña:</label>
           <input type="password" id="password" v-model="password" required>
         </div>
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit" class="action-button" @click="goToHome">Iniciar sesión</button>
+
       </form>
       <p v-if="error" class="error-message">{{ error }}</p>
       <p v-if="loggedIn" class="success-message">Sesión iniciada correctamente!</p>
@@ -27,12 +28,18 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+const router = useRouter();
 import { ref } from 'vue';
 
 const username = ref('');
 const password = ref('');
 const error = ref('');
 const loggedIn = ref(false);
+
+const goToHome = () => {
+  router.push('/');
+};
 
 const login = (event) => {
   event.preventDefault();

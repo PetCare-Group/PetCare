@@ -28,7 +28,8 @@
             <pv-dropdown v-model="selectedRole" :options="roles" optionLabel="name" placeholder="Seleccione un rol" class="w-full md:w-14rem custom-dropdown" />
           </div>
         </div>
-        <button type="submit">Registrarse</button>
+        <button type="submit" class="action-button" @click="goToLog">Registrarse</button>
+
       </form>
       <p v-if="error" class="error-message">{{ error }}</p>
       <p v-if="signedUp" class="success-message">Registro Completado!</p>
@@ -37,6 +38,8 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+const router = useRouter();
 import { ref } from 'vue';
 
 const name = ref('');
@@ -52,6 +55,10 @@ const roles = ref([
   { name: 'Dueño de mascota', code: 'DM' },
   { name: 'Adiestrador/Veterinario', code: 'A' },
 ]);
+
+const goToLog = () => {
+  router.push('/log');
+};
 
 const signup = (event) => {
   event.preventDefault();
