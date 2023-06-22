@@ -28,7 +28,7 @@
             <pv-dropdown v-model="selectedRole" :options="roles" optionLabel="name" placeholder="Seleccione un rol" class="w-full md:w-14rem custom-dropdown" />
           </div>
         </div>
-        <button type="submit" class="action-button" @click="goToLog">Registrarse</button>
+        <button type="submit" class="action-button" >Registrarse</button>
 
       </form>
       <p v-if="error" class="error-message">{{ error }}</p>
@@ -62,22 +62,23 @@ const goToLog = () => {
 
 const signup = (event) => {
   event.preventDefault();
-  fetch('http://localhost:3000/api/signup', {
+  fetch('http://localhost:5013/api/v1/users/sign-up', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name: name.value,
-      email: email.value,
+      firstName: name.value,
+      lastName: "Cardenas",
+      mail: email.value,
       password: password.value,
-      role: role.value
     })
   })
       .then(response => {
         if (response.ok) {
           error.value = '';
           signedUp.value = true;
+          goToLog();
         } else {
           error.value = 'Registration failed';
           signedUp.value = false;

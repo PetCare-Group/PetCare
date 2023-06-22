@@ -11,14 +11,14 @@
       <h2>Iniciar sesión</h2>
       <form @submit="login">
         <div class="input-container">
-          <label for="username">Usuario:</label>
+          <label for="username">Correo:</label>
           <input type="text" id="username" v-model="username" required>
         </div>
         <div class="input-container">
           <label for="password">Contraseña:</label>
           <input type="password" id="password" v-model="password" required>
         </div>
-        <button type="submit" class="action-button" @click="goToHome">Iniciar sesión</button>
+        <button type="submit" class="action-button" >Iniciar sesión</button>
 
       </form>
       <p v-if="error" class="error-message">{{ error }}</p>
@@ -38,18 +38,21 @@ const error = ref('');
 const loggedIn = ref(false);
 
 const goToHome = () => {
+  // console.log("Loginaaa")
+
   router.push('/');
 };
 
 const login = (event) => {
+  console.log("Login")
   event.preventDefault();
-  fetch('http://localhost:3000/api/login', {
+  fetch('http://localhost:5013/api/v1/users/sign-in', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      username: username.value,
+      mail: username.value,
       password: password.value
     })
   })
@@ -57,8 +60,10 @@ const login = (event) => {
         if (response.ok) {
           error.value = '';
           loggedIn.value = true;
+          console.log(response)
+          goToHome()
         } else {
-          error.value = 'Invalid username or password';
+          error.value = 'Invalid mail or password';
           loggedIn.value = false;
         }
         username.value = '';

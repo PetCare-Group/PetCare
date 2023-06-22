@@ -30,6 +30,6 @@ export class PetApiService {
   }
 
   getWorkers() {
-    return http.get(`/tutorials`);
+    return http.get(`/services`);
   }
 }

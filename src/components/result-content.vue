@@ -1,70 +1,77 @@
 <template>
     <div class="flex flex-wrap">
-        <div class="container">
-            <div v-for="worker in workers" :key="worker.id" class="dsp-work">
-
-
-                <pv-button
-                  severity="warning"
-                  outlined
-                  class="p-button p-component p-button-rounded p-button-text-icon-left"
-                  :style="{
-        width: '120%',
-        height: '80%',
-        'border-radius': '15px',
-        'background-color': '#FFFFFF',
-      }"
-                >
-                    <img
-                      src="src\assets\logo.svg"
-                      class="user-avatar"
-                      alt="Avatar de usuario"
-                      width="20%"
-                    />
-                    <div class="user-info">
-                        <div class="user-name">{{ worker.user.firstName + " " +worker.user.lastName }}</div>
-                        <div class="user-details">
-                            <div class="user-distance">{{ worker.direction }}</div>
-                            <div class="user-stars">
-                                <i class="pi pi-star"></i>
-                                5.0 (70)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="price-container">
-                        <div class="price-info">S/ 15.00</div>
-                        <div class="per-X">Por día</div>
-                    </div>
-                </pv-button>
+      <div class="container">
+        <div v-for="worker in workers" :key="worker.id" class="dsp-work">
+          <pv-button
+            severity="warning"
+            outlined
+            class="p-button p-component p-button-rounded p-button-text-icon-left"
+            :style="{
+              width: '120%',
+              height: '80%',
+              'border-radius': '15px',
+              'background-color': '#FFFFFF',
+            }"
+            @click="redirectToWorkerDetails(worker)"
+          >
+            <img
+              src="src\assets\logo.svg"
+              class="user-avatar"
+              alt="Avatar de usuario"
+              width="20%"
+            />
+            <div class="user-info">
+              <div class="user-name">{{ worker.user.firstName }}</div>
+              <div class="user-details">
+                <div class="user-distance">{{ worker.direction }}</div>
+                <div class="user-stars">
+                  <i class="pi pi-star"></i>
+                  5.0 (70)
+                </div>
+              </div>
             </div>
+            <div class="price-container">
+              <div class="price-info">S/ 15.00</div>
+              <div class="per-X">Por día</div>
+            </div>
+          </pv-button>
         </div>
-
+      </div>
     </div>
-</template>
-
-<script>
-import { PetApiService } from "@/learning/services/pet-api.service";
-export default {
+  </template>
+  
+  <script>
+  import { PetApiService } from "@/learning/services/pet-api.service";
+  
+  export default {
     name: "result-content",
     data() {
-        return {
-            id: null,
-            workers: [],
-            worker: {},
-            petService: null,
-        }
+      return {
+        id: null,
+        workers: [],
+        worker: {},
+        petService: null,
+      };
     },
     created() {
-        this.petService = new PetApiService();
-        this.petService.getWorkers().then((response) => {
-            this.workers = response.data;
-            console.log(this.workers);
-        })
-        // console.log(workers)
-    }
-};
-</script>
-
+      this.petService = new PetApiService();
+      this.petService.getWorkers().then((response) => {
+        this.workers = response.data;
+        console.log(this.workers);
+      });
+    },
+    methods: {
+      redirectToWorkerDetails(worker) {
+        // Redireccionar a otro componente y pasar el objeto como parámetro
+        this.$router.push({
+          path: "/service",
+          params: { worker: 1 },
+        });
+      },
+    },
+  };
+  </script>
+  
 <style scoped>
 .user-avatar {
     border-radius: 50%;
