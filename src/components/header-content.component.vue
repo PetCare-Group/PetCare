@@ -1,4 +1,5 @@
 <template>
+    
   <pv-toolbar class="surface-0">
     <template #start>
       <img
@@ -69,25 +70,29 @@ const item = ref([
     icon: "pi pi-fw pi-power-off",
     items: [
       {
-        label: "Editar perfil",
+        label: "Ver perfil",
         icon: "pi pi-fw pi-align-left",
+        to: "/my-account",
       },
       {
         label: "Mis mascotas",
         icon: "pi pi-fw pi-align-right",
-        to: "/mypets",
+        to: "/petlist",
       },
       {
         label: "Mis servicios",
         icon: "pi pi-fw pi-align-right",
+        to: "/mis-servicios"
       },
       {
         label: "Mis favoritos",
         icon: "pi pi-fw pi-align-right",
+        to: "/misfavoritos",
       },
       {
         label: "Salir",
         icon: "pi pi-fw pi-align-right",
+        to: "/log",
       },
     ],
   },

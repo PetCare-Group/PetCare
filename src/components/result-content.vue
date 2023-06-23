@@ -1,7 +1,8 @@
 <template>
     <div class="flex flex-wrap">
       <div class="container">
-        <div v-for="worker in workers" :key="worker.id" class="dsp-work">
+        <div v-for="worker in workers"  class="dsp-work">
+         <router-link :to=" { name:'service', params:{id:JSON.stringify(worker.id)}}">
           <pv-button
             severity="warning"
             outlined
@@ -12,7 +13,7 @@
               'border-radius': '15px',
               'background-color': '#FFFFFF',
             }"
-            @click="redirectToWorkerDetails(worker)"
+           
           >
             <img
               src="src\assets\logo.svg"
@@ -35,6 +36,7 @@
               <div class="per-X">Por día</div>
             </div>
           </pv-button>
+         </router-link>
         </div>
       </div>
     </div>
@@ -47,9 +49,7 @@
     name: "result-content",
     data() {
       return {
-        id: null,
         workers: [],
-        worker: {},
         petService: null,
       };
     },
@@ -63,9 +63,9 @@
     methods: {
       redirectToWorkerDetails(worker) {
         // Redireccionar a otro componente y pasar el objeto como parámetro
-        this.$router.push({
-          path: "/service",
-          params: { worker: 1 },
+        this.$router.push ({
+            name: "service",
+            params:{id:JSON.stringify(worker.id)}
         });
       },
     },

@@ -32,4 +32,9 @@ export class PetApiService {
   getWorkers() {
     return http.get(`/services`);
   }
+  
+  getWorkerId(id){
+    
+    return http.get(`/services/${id}`);
+}
 }

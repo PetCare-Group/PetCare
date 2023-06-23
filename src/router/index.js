@@ -27,12 +27,20 @@ const router = createRouter({
       component: () => import("../views/mypets.vue"),
     },
     {
-      path: "/service",
+      path: "/service/:id",
       name: "service",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("../components/service-content.component.vue"),
+    },
+    {
+      path: "/service/:id/booked",
+      name: "booked",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/CreatedBookedView.vue"),
     },
     {
       path: "/petlist",
@@ -72,6 +80,22 @@ const router = createRouter({
       path: "/signin",
       name: "signin",
       component:()=>import("../views/SignInView.vue"),
+    },
+    {
+      path: "/my-account",
+      name: "account",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/userProfile.vue"),
+    },
+    {
+      path: "/misfavoritos",
+      name: "favoritos",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/MisFavoritos.vue"),
     },
   ],
 });

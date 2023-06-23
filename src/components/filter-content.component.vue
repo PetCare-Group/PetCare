@@ -1,4 +1,5 @@
 <template>
+   
   <div
     class="flex-direction-column flex-wrap flex align-items-center justify-content-between row-gap-2 w-20rem h-auto border-orange-500 border-2 p-4"
   >
@@ -112,6 +113,7 @@
       </div>
     </div>
   </div>
+ 
 </template>
 
 <script>

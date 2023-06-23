@@ -1,4 +1,5 @@
 <template>
+    <HeaderContent/>
     <div class="servicio-container">
       <div class="servicio-info">
         <div class="info__profile">
@@ -8,6 +9,7 @@
             width="160"
             preview
           ></pv-image>
+            <p>{{this.workers.id}}</p>
           <div class="info__profile__data">
             <p v-if="this.worker && this.worker.location" class="text-yellow-500 font-bold text-lg">{{ this.worker.location }}</p>
   
@@ -25,9 +27,9 @@
           </div>
         </div>
         <div class="servicio-info__about">
-          <h3 v-if="this.worker && this.worker.user && this.worker.user.firstName" class="text-yellow-500 font-medium">Sobre {{ this.worker.user.firstName }}</h3>
+          <h3 class="text-yellow-500 font-medium">Sobre {{ this.workers.user.firstName }}</h3>
           <div class="servicio-info__about__message">
-            <p v-if="this.worker && this.worker.description">{{ this.worker.description }}</p>
+            <p >{{ this.workers.description }}</p>
             <p class="text-yellow-500">Continuar leyendo</p>
           </div>
           <div class="servicio-info__about__detail">
@@ -82,14 +84,12 @@
         <div class="tarifa">
           <h3 class="text-yellow-500">Tarifas</h3>
           <div>
-            <p class="text-yellow-500">Veterinario</p>
-            <p v-if="worker && worker.price" class="text-yellow-500">S/{{ worker.price }}.0</p>
+              <p  class="text-yellow-500">{{ this.workers.typeService }}</p>
+            <p  class="text-yellow-500">S/{{ this.workers.price }}.0</p>
           </div>
-          <div>
-            <p class="text-yellow-500">Paseador</p>
-            <p v-if="worker && worker.typeService" class="text-yellow-500">S/{{ worker.typeService }}.0</p>
-          </div>
+            <router-link :to=" { name: 'booked', params:{id:JSON.stringify(this.id)}}">
           <pv-button label="Reservar" severity="warning" raised />
+            </router-link>
         </div>
         <div class="calendario">
           <h3>Disponibilidad</h3>
@@ -111,29 +111,33 @@
   import { computed } from "vue";
   import { useRoute } from "vue-router";
   import { PetApiService } from "@/learning/services/pet-api.service";
-  
+  import HeaderContent from "../components/header-content.component.vue"
   export default {
     name: "service-content.component",
+      components: {HeaderContent},
     data() {
       return {
         workers: null,
         petService: null,
-      };
+        id: JSON.parse(this.$route.params.id),
+      }
     },
     created() {
+      
       this.petService = new PetApiService();
-      this.petService.getWorkers().then((response) => {
+      this.petService.getWorkerId(this.id).then((response) => {
+          console.log(response.data);
         this.workers = response.data;
-        this.workers = this.workers[0];
         console.log(this.workers);
       });
     },
-    computed: {
+    methods: {
       worker() {
-        const workerId = this.$route.params.worker;
+        const workerId = JSON.parse(this.$route.para.id);
 
         console.log(this.$route, "-----")
-        return this.workers = workerId;
+        return this.workerId = workerId;
+        console.log(this.workerId);
         // return this.workers.find((worker) => worker.id === workerId);
       },
     },

@@ -1,5 +1,5 @@
 <template>
-
+    
   <RouterView />
   <!--<SearchBarContent />
   <div class="flex flex-wrap justify-content-between w-10 mx-auto mt-4">
@@ -8,7 +8,7 @@
     <ResultContent class="" />
   </div>
   -->
-
+<FooterContent/>
 </template>
 
 <script>
