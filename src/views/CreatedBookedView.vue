@@ -22,7 +22,7 @@ name: "CreatedBookedView",
             this.workers = response.data;
             console.log(this.workers);
         });
-        
+
         this.petService.getPet().then((response) => {
             console.log(response.data);
             this.pets = response.data;
@@ -38,7 +38,7 @@ name: "CreatedBookedView",
     <HeaderContent/>
 <div class="flex-column flex-wrap justify-content-start mt-5rem">
     <div class="flex flex-box flex-row flex-wrap justify-content-around text-5xl text-orange-500 mb-5">
-    Reservar servicio con {{this.workers.user.firstName}} 
+    Reservar servicio con {{this.workers.user.firstName}}
       
     </div>
     <div class="flex flex-box flex-row flex-wrap mr-5 ml-5 text-orange-500 border-bottom-1 mb-5">

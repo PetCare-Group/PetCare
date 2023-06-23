@@ -43,6 +43,14 @@ const router = createRouter({
       component: () => import("../views/CreatedBookedView.vue"),
     },
     {
+      path: "/service/:id/booked/payment",
+      name: "payment",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/BookingPaymentView.vue"),
+    },
+    {
       path: "/petlist",
       name: "list",
       // route level code-splitting
