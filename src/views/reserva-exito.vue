@@ -13,7 +13,7 @@ let showPaymentForm = ref(false); // Declarar una variable reactiva para control
   <div class="confirmation-container">
     <img src="src/assets/logo.svg" alt="img1">
     <h1>Tu reserva se realizó con éxito</h1>
-    <p>Podrás visualizar la información de tu reserva en Mis Servicios.</p>
+    <p>Podrás visualizar la información de tu reserva en Mis Servicios. </p>
     <pv-button
       severity="warning"
       :style="{
