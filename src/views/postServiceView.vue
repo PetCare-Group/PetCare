@@ -8,7 +8,7 @@ import FooterContent from "@/components/footer-content.component.vue";
   <HeaderContent />
   <div class="container">
     <div class="left-side-container">
-      <h1>Mi perfil</h1>
+      <h1>Publicar servicio</h1>
       <img src="src/assets/logo.svg" alt="img1">
       <pv-button
           severity="warning"
@@ -19,7 +19,7 @@ import FooterContent from "@/components/footer-content.component.vue";
         'border-radius': '7px',
         'justify-content': 'center',
         'color': 'white',
-        }">Guardar</pv-button>
+        }">Crear servicio</pv-button>
     </div>
     <div class="right-side-container">
       <div class="name-container" style="display: flex; justify-content: space-between;">
@@ -39,43 +39,11 @@ import FooterContent from "@/components/footer-content.component.vue";
           />
         </div>
         <div class="name-sub-container" style="margin-left: 10%;">
-          <h2>Apellido</h2>
-          <pv-input-text class="txt1"
-                         v-model="value1"
-                         type="text"
-                         placeholder="Dueñas Serna"
-                         :style="{
-                'border-radius': '7px',
-                'background-color': '#FFF389',
-                'font-family': 'Inter',
-                'font-size': '14px',
-                'font-weight': 'bold',
-                }"
-          />
-        </div>
-      </div>
-      <div class="name-container" style="display: flex; justify-content: space-between;">
-        <div class="name-sub-container">
           <h2>Teléfono</h2>
           <pv-input-text class="txt1"
                          v-model="value1"
                          type="text"
-                         placeholder="982399406"
-                         :style="{
-                'border-radius': '7px',
-                'background-color': '#FFF389',
-                'font-family': 'Inter',
-                'font-size': '14px',
-                'font-weight': 'bold',
-                }"
-          />
-        </div>
-        <div class="name-sub-container" style="margin-left: 10%;">
-          <h2>DNI</h2>
-          <pv-input-text class="txt1"
-                         v-model="value1"
-                         type="text"
-                         placeholder="10725572"
+                         placeholder="974 567 321"
                          :style="{
                 'border-radius': '7px',
                 'background-color': '#FFF389',
@@ -102,12 +70,45 @@ import FooterContent from "@/components/footer-content.component.vue";
             }"
         />
       </div>
+      <h1>Botones*</h1>
+      <div class="name-container" style="display: flex; justify-content: space-between;">
+        <div class="name-sub-container">
+          <h2>Nombre</h2>
+          <pv-input-text class="txt1"
+                         v-model="value1"
+                         type="text"
+                         placeholder="Carmen"
+                         :style="{
+                'border-radius': '7px',
+                'background-color': '#FFF389',
+                'font-family': 'Inter',
+                'font-size': '14px',
+                'font-weight': 'bold',
+                }"
+          />
+        </div>
+        <div class="name-sub-container" style="margin-left: 10%;">
+          <h2>Teléfono</h2>
+          <pv-input-text class="txt1"
+                         v-model="value1"
+                         type="text"
+                         placeholder="974 567 321"
+                         :style="{
+                'border-radius': '7px',
+                'background-color': '#FFF389',
+                'font-family': 'Inter',
+                'font-size': '14px',
+                'font-weight': 'bold',
+                }"
+          />
+        </div>
+      </div>
       <div class="name-sub-container">
-        <h2>Contraseña</h2>
+        <h2>Descripción</h2>
         <pv-input-text class="txt1"
                        v-model="value1"
                        type="text"
-                       placeholder="******"
+                       placeholder=""
                        :style="{
                 'width': '110%',
                 'border-radius': '7px',
@@ -119,50 +120,6 @@ import FooterContent from "@/components/footer-content.component.vue";
                 }"
         />
       </div>
-
-      <h2>Cuentas vinculadas</h2>
-      <div class="name-container" style="display: flex; justify-content: space-between;">
-        <pv-button
-            severity="warning"
-            :style="{
-                'margin-left': '10%',
-                'width': '80%',
-                'display': 'flex',
-                'border-radius': '20px',
-                'justify-content': 'center',
-                'color': 'white',
-            }">Facebook</pv-button>
-        <pv-button
-            severity="warning"
-            :style="{
-                'margin-left': '5%',
-                'width': '80%',
-                'display': 'flex',
-                'border-radius': '20px',
-                'justify-content': 'center',
-                'color': 'white',
-            }">Google</pv-button>
-      </div>
-      <pv-button
-          severity="warning"
-          :style="{
-                'margin-top': '7%',
-                'width': '110%',
-                'display': 'flex',
-                'border-radius': '20px',
-                'justify-content': 'center',
-                'color': 'white',
-            }">Cambiar contraseña</pv-button>
-      <pv-button
-          severity="warning"
-          :style="{
-                'margin-top': '7%',
-                'width': '110%',
-                'display': 'flex',
-                'border-radius': '20px',
-                'justify-content': 'center',
-                'color': 'white',
-            }">Eliminar cuenta</pv-button>
     </div>
   </div>
   <FooterContent />
