@@ -7,8 +7,8 @@
 
     <ResultContent class="" />
   </div>
+  <FooterContent/>
   -->
-<FooterContent/>
 </template>
 
 <script>
