@@ -8,9 +8,12 @@ name: "CreatedBookedView",
             return {
                 workers: null,
                 selectedPets:null,
+                date_value:null,
+                time_value: null,
                 pets:null,
                 petService: null,
                 id: JSON.parse(this.$route.params.id),
+                hours: [{value:"08:00"},{value:"09:00"} ,{value:"10:00"},{value:"11:00"},{value:"12:00"},{value:"13:00"},{value:"14:00"},{value:"15:00"},{value:"16:00"},{value:"17:00"},{value:"18:00"}],
             }
         },
 
@@ -30,6 +33,14 @@ name: "CreatedBookedView",
         });
     },
     
+    methods:{
+    
+    showDate(){
+        
+        console.log(this.date_value);
+    }
+    
+    }
     
 })
 </script>
@@ -41,6 +52,7 @@ name: "CreatedBookedView",
     Reservar servicio con {{this.workers.user.firstName}}
       
     </div>
+   
     <div class="flex flex-box flex-row flex-wrap mr-5 ml-5 text-orange-500 border-bottom-1 mb-5">
    
     <pv-image
@@ -57,28 +69,81 @@ name: "CreatedBookedView",
         
         
     </div>
-    
+
+    <div class="flex flex-box flex-row w-full gap- 6">
+        
+     <div>   
     <div class=" flex flex-box flex-column w-18rem border-bottom-1 border-orange-500 ml-5 mr-5 gap-3">
         <p class="text-orange-500 ">¿Cual es su servicio seleccionado ?</p>
         <p class=" text-center mb-3 " > {{this.workers.typeService}} </p>
         
     </div>
 
-    <div>
+    <div class=" flex flex-box flex-column w-18rem border-bottom-1 border-orange-500 ml-5 mr-5 gap-3">
+
+        <p class="text-orange-500 mt-3">¿Que mascota desea seleccionar?</p>
         <pv-dropdown
             style="background-color: #fff389"
             v-model="selectedPets"
             :options="pets"
             optionLabel="name"
             placeholder="nombre"
-            class="w-full md:w-14rem"
+            class="w-full md:w-14rem mb-5"
+            
+            
         />
 
     </div>
 
+    </div>
+         
+    
+        <div>
+            <div class="flex flex-box flex-column w-18rem border-bottom-1 border-orange-500 ml-5 mr-5 gap-3 mb-3">
 
+
+                <p  class="text-orange-500 ">Fecha </p>
+                <pv-input-text
+                    style="background-color: #fff389 "
+                    type="date"
+                    id="username"
+                    v-model="date_value"
+                    aria-describedby="username-help"
+                    class="w-full md:w-14rem "
+
+                />
+
+                <p class="text-orange-500 ">Hora </p>
+
+                <pv-dropdown
+                    style="background-color: #fff389"
+                    v-model="time_value"
+                    :options="hours"
+                    optionLabel="value"
+                    placeholder="hh:mm"
+                    class="w-full md:w-14rem mb-3"
+                />
+
+      
+            
+            
+        </div>
+        </div>
+        <div>
+            <router-link :to=" { name: 'payment', params:{id:JSON.stringify(this.id)}}">
+            <pv-button
+                class="surface-0 bg-yellow-500"
+                style="width: 280px"
+                type="submit"
+                label="Continuar"
+            />
+            </router-link>
+    
+     </div>
 
 </div>
+</div>
+
 </template>
 
 <style >
