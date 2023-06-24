@@ -103,15 +103,13 @@
       </div>
     </div>
   </div>
-  <FooterContent />
 </template>
 
 <script>
 import HeaderContent from "@/components/header-content.component.vue";
-import FooterContent from "@/components/footer-content.component.vue";
 
 export default {
-  components: { HeaderContent, FooterContent },
+  components: { HeaderContent },
 
   name: 'RegularSwitch',
   data: () => ({
@@ -175,17 +173,5 @@ img{
   color: #FBB847;
 }
 
-.custom-switch .p-toggle-slider {
-  background-color: yellow;
-}
-
-.custom-switch .p-toggle-on {
-  background-color: yellow;
-}
-
-.custom-switch .p-toggle-off {
-  background-color: #FFF389;
-  border-color: yellow;
-}
 
 </style>

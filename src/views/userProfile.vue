@@ -1,7 +1,6 @@
 <script setup>
 
 import HeaderContent from "@/components/header-content.component.vue";
-import FooterContent from "@/components/footer-content.component.vue";
 </script>
 
 <template>
@@ -165,7 +164,6 @@ import FooterContent from "@/components/footer-content.component.vue";
             }">Eliminar cuenta</pv-button>
     </div>
   </div>
-  <FooterContent />
 </template>
 
 <style scoped>
