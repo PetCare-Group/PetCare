@@ -38,6 +38,7 @@ import DataView from "primevue/dataview";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import Image from 'primevue/image';
 import Calendar from 'primevue/calendar';
+import InputSwitch from 'primevue/inputswitch';
 
 
 const app = createApp(App);
@@ -71,4 +72,5 @@ app.component("pv-menubar", Menubar);
 app.component("pv-dataview", DataView);
 app.component("pv-image", Image);
 app.component("pv-calendar", Calendar);
+app.component("pv-switch", InputSwitch);
 app.mount("#app");
