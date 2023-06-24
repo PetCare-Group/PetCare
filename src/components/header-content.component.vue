@@ -107,7 +107,7 @@ const buttons = ref([
   {
     label: "Buscar un servicio",
     icon: "pi pi-fw pi-pencil",
-    to: " ",
+    to: "/",
     items: [
       {
         label: "Adiestrador",
