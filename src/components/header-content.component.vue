@@ -126,7 +126,7 @@ const buttons = ref([
   {
     label: "Publicar un servicio",
     icon: "pi pi-fw pi-user",
-    to: "/petlist",
+    to: "/post-service",
   },
   {
     label: "Ayuda",
