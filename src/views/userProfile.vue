@@ -2,6 +2,43 @@
 
 import HeaderContent from "@/components/header-content.component.vue";
 import FooterContent from "@/components/footer-content.component.vue";
+import {PetApiService} from "../learning/services/pet-api.service";
+
+export default ({
+    name: "UserProfile",
+    components: {HeaderContent, FooterContent},
+    data() {
+        return {
+            workers: null,
+            selectedUser: {id:0},
+            name_value:null,
+            mail_value:null,
+            password_value: null,
+           last_name_value: null,
+            pets:null,
+            petService: null,
+            id: JSON.parse(this.$route.params.id),
+            hours: [{value:"08:00"},{value:"09:00"} ,{value:"10:00"},{value:"11:00"},{value:"12:00"},{value:"13:00"},{value:"14:00"},{value:"15:00"},{value:"16:00"},{value:"17:00"},{value:"18:00"}],
+        }
+    },
+
+    created() {
+
+        this.petService = new PetApiService();
+        this.petService.getWorkerId(this.id).then((response) => {
+            console.log(response.data);
+            this.workers = response.data;
+            console.log(this.workers);
+        });
+
+        this.petService.getPet().then((response) => {
+            console.log(response.data);
+            this.pets = response.data;
+            console.log(this.pets);
+        });
+    },
+
+    methods:{
 </script>
 
 <template>

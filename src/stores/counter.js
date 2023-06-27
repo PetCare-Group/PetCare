@@ -1,12 +1,25 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+  
+export default new Vuex.Store({
+  state: {
+    valor: null,
+    miDia: ' ',
+    miHora: ' '
+  },
+  mutations: {
+    setValor( state, nuevoValor) {
+      state.valor = nuevoValor;
+      
+    },
+
+    actualizarVariableDia(state, valor) {
+      state.miDia = valor;
+    },
+
+    actualizarVariableHora(state, valor) {
+      state.miHora = valor;
+    }
+    
   }
+});
 
-  return { count, doubleCount, increment }
-})

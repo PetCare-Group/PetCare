@@ -1,6 +1,9 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 
+import Vuex from 'vuex';
+
+
 import App from "./App.vue";
 import router from "./router";
 
@@ -50,6 +53,7 @@ app.use(ToastService);
 
 // PrimeVue Configuration
 app.use(PrimeVue, { ripple: true });
+app.use(Vuex);
 app.component("pv-data-table", DataTable);
 app.component("pv-column", Column);
 app.component("pv-toolbar", Toolbar);

@@ -9,7 +9,7 @@
     </div>
     <div class="form-container">
       <h2>Iniciar sesión</h2>
-      <form @submit="login">
+     
         <div class="input-container">
           <label for="username">Correo:</label>
           <input type="text" id="username" v-model="username" required>
@@ -18,61 +18,100 @@
           <label for="password">Contraseña:</label>
           <input type="password" id="password" v-model="password" required>
         </div>
-        <button type="submit" class="action-button" >Iniciar sesión</button>
-
-      </form>
+        <pv-button @click="createdUser" class="action-button" >Iniciar sesión</pv-button>
+       
       <p v-if="error" class="error-message">{{ error }}</p>
       <p v-if="loggedIn" class="success-message">Sesión iniciada correctamente!</p>
     </div>
   </div>
 </template>
 
-<script setup>
-import { useRouter } from 'vue-router';
-const router = useRouter();
-import { ref } from 'vue';
+<script >
 
-const username = ref('');
-const password = ref('');
-const error = ref('');
-const loggedIn = ref(false);
+import { PetApiService } from "@/learning/services/pet-api.service";
+import { FilterMatchMode } from "primevue/api";
+import HeaderContent from "@/components/header-content.component.vue";
+import FooterContent from "@/components/footer-content.component.vue";
+import router from "../router";
+export default {
+    name: "login",
+    components: { FooterContent, HeaderContent},
+    data() {
+        return {
 
-const goToHome = () => {
-  console.log(username.value);
-
-  //router.push('/');
-};
-
-const login = (event) => {
-  console.log("Login")
-  event.preventDefault();
-  fetch('http://localhost:5013/api/v1/users/sign-in', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
+            username: null,
+            password: null,
+            id: null,
+            date_value: null,
+            time_value: null,
+            user: null,
+            user_info: null,
+            petService: null,
+            success:false,
+            token: null,
+        };
     },
-    body: JSON.stringify({
-      mail: username.value,
-      password: password.value
-    })
-  })
-      .then(response => {
-        if (response!=null) {
-          error.value = '';
-          loggedIn.value = true;
-          console.log(response)
-          goToHome()
-        } else {
-          error.value = 'Invalid mail or password';
-          loggedIn.value = false;
-        }
-        username.value = '';
-        password.value = '';
-      })
-      .catch(error => {
-        console.error('Login request error:', error);
-      });
-};
+
+    created() {
+       this.petService=new PetApiService();
+    },
+
+    methods: {
+
+       
+        
+        entrar(data) {
+
+            this.petService.PostAuthentication(data).then((response) => {
+                this.user_info = response.data;
+                console.log(this.user_info);
+                if(this.user_info!=null){
+                    console.log( " si ")
+                    this.id= this.user_info.id;
+                    this.token=this.user_info.token;
+                    console.log(this.id);
+                    this.validation(this.id);
+                }
+                // console.log(this.pets);
+            });
+            
+            
+
+        },
+        
+        
+
+        createdUser() {
+
+            
+            this.user = new Object({
+                mail: this.username,
+                password: this.password
+            });
+
+            //console.log(this.user);
+            this.entrar(this.user);
+
+
+        },
+
+        validation(id){
+
+            if(id!=null){
+                console.log(" si 2")
+                router.push({ name: 'home', params: { id: JSON.stringify(this.id), token:JSON.stringify(this.token)  } });
+
+            }
+            else {
+                console.log(" ");
+            }
+
+        },
+
+    }
+}
+
+  
 </script>
 
 <style scoped>

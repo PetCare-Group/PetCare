@@ -1,12 +1,37 @@
 import http from "../../core/services/http-common";
+import axios from "axios";
 
 export class PetApiService {
   getUser() {
-    return http.get("/user");
+    return http.get("/users");
+  }
+  
+  PostAuthentication (data)
+  {
+    return http.post("/users/sign-in",data)
+    
+  }
+  getPet(userId) {
+    return http.get(`/pet/${userId}/pet`);
   }
 
-  getPet() {
-    return http.get("/pet");
+  getUserById(id,token) {
+    return axios({
+      method: 'get',
+      url: `http://localhost:5013/api/v1/users/${id}`,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+        .then(response => {
+          console.log(response.data)
+
+          return response.data;
+        })
+        .catch(err => {
+          console.log(err);
+          throw err;
+        });
   }
 
   findUserByMail(email) {
@@ -21,6 +46,10 @@ export class PetApiService {
     return http.put(`/pet/${name}`, data);
   }
 
+  getPetId(id){
+    return http.get(`/pet/${id}`);
+    
+}
   delete(id) {
     return http.delete(`/pet/${id}`);
   }

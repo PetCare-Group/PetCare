@@ -64,40 +64,6 @@ const services = ref([
   { name: "Veterinario", code: "LDN" },
 ]);
 
-const item = ref([
-  {
-    label: "Pamela",
-    icon: "pi pi-fw pi-power-off",
-    items: [
-      {
-        label: "Ver perfil",
-        icon: "pi pi-fw pi-align-left",
-        to: "/my-account",
-      },
-      {
-        label: "Mis mascotas",
-        icon: "pi pi-fw pi-align-right",
-        to: "/petlist",
-      },
-      {
-        label: "Mis servicios",
-        icon: "pi pi-fw pi-align-right",
-        to: "/mis-servicios"
-      },
-      {
-        label: "Mis favoritos",
-        icon: "pi pi-fw pi-align-right",
-        to: "/misfavoritos",
-      },
-      {
-        label: "Salir",
-        icon: "pi pi-fw pi-align-right",
-        to: "/log",
-      },
-    ],
-  },
-]);
-
 const buttons = ref([
   {
     label: "Inicio",
@@ -137,8 +103,67 @@ const buttons = ref([
 </script>
 
 <script>
+import {PetApiService} from "../learning/services/pet-api.service";
+import axios from "axios";
+import {ref} from "vue";
+
 export default {
   name: "header-content.component",
+    props: {
+     valor_label: String,
+        valor_id: Number,
+    },
+
+    data() {
+        return {
+            user: null,
+            petService: null,
+            valor_name: "hola",
+            item: [
+                {
+                    label: String,
+                    icon: "pi pi-fw pi-power-off",
+                    items: [
+                        {
+                            label: "Ver perfil",
+                            icon: "pi pi-fw pi-align-left",
+                            to: "/my-account",
+                        },
+                        {
+                            label: "Mis mascotas",
+                            icon: "pi pi-fw pi-align-right",
+                            to: String,
+                        },
+                        {
+                            label: "Mis servicios",
+                            icon: "pi pi-fw pi-align-right",
+                            to: "/mis-servicios"
+                        },
+                        {
+                            label: "Mis favoritos",
+                            icon: "pi pi-fw pi-align-right",
+                            to: "/misfavoritos",
+                        },
+                        {
+                            label: "Salir",
+                            icon: "pi pi-fw pi-align-right",
+                            to: "/log",
+                        },
+                    ]
+
+                }
+            ]
+        };
+    },
+    
+    mounted() {
+
+        console.log(this.valor_label)
+        this.item[0].label = this.valor_label;
+        this.item[0].items[1].to = {name: 'list', params: {id: JSON.stringify(this.valor_id)}
+
+        };
+    }
 };
 </script>
 

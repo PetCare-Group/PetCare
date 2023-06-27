@@ -1,13 +1,15 @@
 ﻿<script>
 import {PetApiService} from "../learning/services/pet-api.service";
 import HeaderContent from "../components/header-content.component.vue"
+import { mapMutations } from 'vuex';
+
 export default ({
 name: "CreatedBookedView",
     components: {HeaderContent},
         data() {
             return {
                 workers: null,
-                selectedPets:null,
+                selectedPets: {id:0},
                 date_value:null,
                 time_value: null,
                 pets:null,
@@ -35,12 +37,20 @@ name: "CreatedBookedView",
     
     methods:{
     
-    showDate(){
+    ...mapMutations(['setValor']),
         
-        console.log(this.date_value);
+        showDate(){
+       
+        this.Petid=this.selectedPets.id;
+        console.log(this.selectedPets);
+        
     }
     
-    }
+    
+    
+    },
+    
+   
     
 })
 </script>
@@ -89,6 +99,7 @@ name: "CreatedBookedView",
             optionLabel="name"
             placeholder="nombre"
             class="w-full md:w-14rem mb-5"
+            @click="showDate"
             
             
         />
@@ -130,7 +141,7 @@ name: "CreatedBookedView",
         </div>
         </div>
         <div>
-            <router-link :to=" { name: 'payment', params:{id:JSON.stringify(this.id)}}">
+            <router-link  :to=" { name: 'payment', params:{id:JSON.stringify(this.id),idP:JSON.stringify(selectedPets.id)}}">
             <pv-button
                 class="surface-0 bg-yellow-500"
                 style="width: 280px"

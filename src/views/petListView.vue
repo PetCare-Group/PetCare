@@ -1,5 +1,5 @@
 <template>
-  <HeaderContent />
+
   <div>
     <div class="card">
       <pv-toolbar class="mb-4">
@@ -256,7 +256,8 @@ export default {
       petDialog: false,
       deletePetDialog: false,
       deletePetsDialog: false,
-      pet: {},
+      pet: {}, 
+      userId: JSON.parse(this.$route.params.id),
       selectedpets: null,
       filters: {},
       submitted: false,
@@ -270,7 +271,8 @@ export default {
 
   created() {
     this.petsService = new PetApiService();
-    this.petsService.getPet().then((response) => {
+    console.log(this.userId);
+    this.petsService.getPet(this.userId).then((response) => {
       this.pets = response.data;
       console.log(this.pets);
       this.pets.forEach((pet) => this.getDisplayablePet(pet));

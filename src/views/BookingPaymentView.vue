@@ -1,6 +1,7 @@
 <script>
 import {PetApiService} from "../learning/services/pet-api.service";
 import HeaderContent from "../components/header-content.component.vue"
+import { mapState } from 'vuex';
 export default ({
     name: "BookingPaymentView",
     components: {HeaderContent},
@@ -11,6 +12,7 @@ export default ({
             pets:null,
             petService: null,
             id: JSON.parse(this.$route.params.id),
+            idP: JSON.parse(this.$route.params.idP),
             serviceType: 'Básica',
             servicioCost: 0,
             adicionalesCost: 0,
@@ -20,6 +22,10 @@ export default ({
     },
 
     computed: {
+
+       
+        
+        
         totalToPay() {
             return this.servicioCost + this.adicionalesCost - this.discount + this.cuotaPetCare;
         },
@@ -41,7 +47,7 @@ export default ({
             console.log(this.workers);
         });
 
-        this.petService.getPet().then((response) => {
+        this.petService.getPetId(this.idP).then((response) => {
             console.log(response.data);
             this.pets = response.data;
             console.log(this.pets);
@@ -77,7 +83,7 @@ export default ({
     </div>
 
     <div class="pet-section">
-        <h2 class="section-title">Su mascota</h2>
+        <h2 class="section-title">Su mascota {{this.pets.name}} </h2>
         <div class="pet-image-name">
             <pv-image :src="pets.image" class="pet-image"/>
             <div class="pet-name">{{ pets.name }}</div>

@@ -5,7 +5,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
+      path: "/home/:id/:token",
       name: "home",
       component: HomeView,
     },
@@ -43,7 +43,7 @@ const router = createRouter({
       component: () => import("../views/CreatedBookedView.vue"),
     },
     {
-      path: "/service/:id/booked/payment",
+      path: "/service/:id/booked/:idP",
       name: "payment",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -51,7 +51,7 @@ const router = createRouter({
       component: () => import("../views/BookingPaymentView.vue"),
     },
     {
-      path: "/petlist",
+      path: "/petlist/:id",
       name: "list",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -82,7 +82,7 @@ const router = createRouter({
     {
       path: "/login",
       name: "login",
-      component:()=>import("../views/LogInView.vue"),
+      component:()=>import("../views/LogInView2.vue"),
     },
     {
       path: "/signin",
