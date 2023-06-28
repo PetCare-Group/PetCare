@@ -73,7 +73,7 @@ const buttons = ref([
   {
     label: "Buscar un servicio",
     icon: "pi pi-fw pi-pencil",
-    to: " ",
+    to: "/",
     items: [
       {
         label: "Adiestrador",
@@ -92,7 +92,7 @@ const buttons = ref([
   {
     label: "Publicar un servicio",
     icon: "pi pi-fw pi-user",
-    to: "/petlist",
+    to: "/post-service",
   },
   {
     label: "Ayuda",

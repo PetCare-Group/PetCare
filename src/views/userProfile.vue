@@ -1,6 +1,7 @@
 <script >
 
 import HeaderContent from "@/components/header-content.component.vue";
+<<<<<<< HEAD
 import FooterContent from "@/components/footer-content.component.vue";
 import {PetApiService} from "../learning/services/pet-api.service";
 
@@ -51,6 +52,8 @@ export default ({
        }
         
     }})
+=======
+>>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
 </script>
 
 <template>
@@ -214,7 +217,10 @@ export default ({
             }">Eliminar cuenta</pv-button>
     </div>
   </div>
+<<<<<<< HEAD
   
+=======
+>>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
 </template>
 
 <style scoped>

@@ -1,9 +1,3 @@
-<script setup>
-
-import HeaderContent from "@/components/header-content.component.vue";
-import FooterContent from "@/components/footer-content.component.vue";
-</script>
-
 <template>
  
   <div class="container">
@@ -55,11 +49,11 @@ import FooterContent from "@/components/footer-content.component.vue";
         </div>
       </div>
       <div class="name-sub-container">
-        <h2>Correo electrónico</h2>
+        <h2>Unicación</h2>
         <pv-input-text class="txt1"
                        v-model="value1"
                        type="text"
-                       placeholder="carmenduenasserna@gmail.com"
+                       placeholder=""
                        :style="{
                 'width': '110%',
                 'border-radius': '7px',
@@ -67,41 +61,28 @@ import FooterContent from "@/components/footer-content.component.vue";
                 'font-family': 'Inter',
                 'font-size': '14px',
                 'font-weight': 'bold',
-            }"
+                'color': '#FBB847',
+                }"
         />
       </div>
-      <h1>Botones*</h1>
+
+      <h2>Correo electrónico</h2>
       <div class="name-container" style="display: flex; justify-content: space-between;">
         <div class="name-sub-container">
-          <h2>Nombre</h2>
-          <pv-input-text class="txt1"
-                         v-model="value1"
-                         type="text"
-                         placeholder="Carmen"
-                         :style="{
-                'border-radius': '7px',
-                'background-color': '#FFF389',
-                'font-family': 'Inter',
-                'font-size': '14px',
-                'font-weight': 'bold',
-                }"
-          />
+          <h2>Paseador</h2>
+          <pv-switch v-model="paseador" class="custom-switch"></pv-switch>
         </div>
-        <div class="name-sub-container" style="margin-left: 10%;">
-          <h2>Teléfono</h2>
-          <pv-input-text class="txt1"
-                         v-model="value1"
-                         type="text"
-                         placeholder="974 567 321"
-                         :style="{
-                'border-radius': '7px',
-                'background-color': '#FFF389',
-                'font-family': 'Inter',
-                'font-size': '14px',
-                'font-weight': 'bold',
-                }"
-          />
+        <div class="name-sub-container">
+          <h2>Adiestrador</h2>
+          <pv-switch v-model="adiestrador" class="custom-switch"></pv-switch>
         </div>
+        <div class="name-sub-container">
+          <h2>Entrenador</h2>
+          <pv-switch v-model="entrenador" class="custom-switch"></pv-switch>
+        </div>
+      </div>
+
+      <div class="option1-container" style="display: flex; justify-content: space-between;">
       </div>
       <div class="name-sub-container">
         <h2>Descripción</h2>
@@ -122,8 +103,22 @@ import FooterContent from "@/components/footer-content.component.vue";
       </div>
     </div>
   </div>
-  <FooterContent />
 </template>
+
+<script>
+import HeaderContent from "@/components/header-content.component.vue";
+
+export default {
+  components: { HeaderContent },
+
+  name: 'RegularSwitch',
+  data: () => ({
+    paseador: false,
+    adiestrador: false,
+    entrenador: false,
+  }),
+};
+</script>
 
 <style scoped>
 
@@ -147,7 +142,7 @@ import FooterContent from "@/components/footer-content.component.vue";
   float: left;
   flex-direction: column;
   justify-content: center;
-  margin-left: 40px;
+  margin-left: 2%;
 }
 
 h1{
@@ -177,5 +172,6 @@ img{
   font-weight: bold;
   color: #FBB847;
 }
+
 
 </style>

@@ -4,7 +4,7 @@ import FooterContent from "@/components/footer-content.component.vue";
 import { ref } from 'vue';
 
 import PaymentForm from "@/components/payment-form-component.vue"; 
-let showPaymentForm = ref(false); // Declarar una variable reactiva para controlar la visibilidad del formulario de pago
+let showPaymentForm = ref(false);
 </script>
 
 <template>
@@ -17,6 +17,7 @@ let showPaymentForm = ref(false); // Declarar una variable reactiva para control
     <pv-button
       severity="warning"
       :style="{
+        'margin-bottom':'22px',
         'display': 'flex',
         'margin-top': '25px',
         'border-radius': '7px',
