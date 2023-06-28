@@ -15,6 +15,7 @@ name: "CreatedBookedView",
                 pets:null,
                 petService: null,
                 id: JSON.parse(this.$route.params.id),
+                userId: JSON.parse(this.$route.params.userId),
                 hours: [{value:"08:00"},{value:"09:00"} ,{value:"10:00"},{value:"11:00"},{value:"12:00"},{value:"13:00"},{value:"14:00"},{value:"15:00"},{value:"16:00"},{value:"17:00"},{value:"18:00"}],
             }
         },
@@ -28,7 +29,7 @@ name: "CreatedBookedView",
             console.log(this.workers);
         });
 
-        this.petService.getPet().then((response) => {
+        this.petService.getPet(this.userId).then((response) => {
             console.log(response.data);
             this.pets = response.data;
             console.log(this.pets);
@@ -56,7 +57,7 @@ name: "CreatedBookedView",
 </script>
 
 <template>
-    <HeaderContent/>
+   
 <div class="flex-column flex-wrap justify-content-start mt-5rem">
     <div class="flex flex-box flex-row flex-wrap justify-content-around text-5xl text-orange-500 mb-5">
     Reservar servicio con {{this.workers.user.firstName}}

@@ -18,7 +18,7 @@ import FooterContent from "@/components/footer-content.component.vue";
 import FilterContent from "@/components/filter-content.component.vue";
 import HeaderContent from "@/components/header-content.component.vue";
 import SearchBarContent from "@/components/search-bar-content.vue";
-import ResultContent from "@/components/result-content.vue";
+
 import { PetApiService } from "./learning/services/pet-api.service";
 import mypets from "@/views/mypets.vue";
 export default {
@@ -28,7 +28,7 @@ export default {
     FilterContent,
     HeaderContent,
     SearchBarContent,
-    ResultContent,
+    
     mypets,
   },
   data() {

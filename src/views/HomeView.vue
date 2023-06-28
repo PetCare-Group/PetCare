@@ -40,11 +40,11 @@ export default {
 </script>
 
 <template>
-    <HeaderContent :valor_label="this.user.firstName" :valor_id="this.id"/>
+    <HeaderContent :valor_label="this.user.firstName" :valor_id="this.id" :valor_token="this.token"/>
     <SearchBarContent />
     <div class="flex flex-wrap justify-content-between w-10 mx-auto mt-4">
       <FilterContent />
-      <ResultContent />
+      
     </div>
 
 </template>

@@ -2,7 +2,7 @@
     <div class="flex flex-wrap">
       <div class="container">
         <div v-for="worker in workers"  class="dsp-work">
-         <router-link :to=" { name:'service', params:{id:JSON.stringify(worker.id)}}">
+         <router-link :to=" { name:'service', params:{id:JSON.stringify(worker.id),userId: 2}}">
           <pv-button
             severity="warning"
             outlined

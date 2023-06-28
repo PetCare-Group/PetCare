@@ -9,6 +9,8 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
+
+    
     {
       path: "/about",
       name: "about",
@@ -27,7 +29,7 @@ const router = createRouter({
       component: () => import("../views/mypets.vue"),
     },
     {
-      path: "/service/:id",
+      path: "/service/:id/:userId",
       name: "service",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -35,7 +37,7 @@ const router = createRouter({
       component: () => import("../components/service-content.component.vue"),
     },
     {
-      path: "/service/:id/booked",
+      path: "/service/:id/booked/:userId",
       name: "booked",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -90,7 +92,7 @@ const router = createRouter({
       component:()=>import("../views/SignInView.vue"),
     },
     {
-      path: "/my-account",
+      path: "/my-account/:id/:token",
       name: "account",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route

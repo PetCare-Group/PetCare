@@ -8,7 +8,7 @@ let showPaymentForm = ref(false); // Declarar una variable reactiva para control
 </script>
 
 <template>
-  <HeaderContent />
+ 
 
   <div class="confirmation-container">
     <img src="src/assets/logo.svg" alt="img1">
@@ -23,7 +23,7 @@ let showPaymentForm = ref(false); // Declarar una variable reactiva para control
         'justify-content': 'center',
         'color': 'white',
       }"
-      @click="showPaymentForm = true"
+      
     >Volver al inicio</pv-button>
   </div>
 

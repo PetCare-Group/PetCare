@@ -1,5 +1,5 @@
 <template>
-  <HeaderContent />
+  
   <div class="container">
     <h1 class="main-title">Solucionador de problemas</h1>
 
@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  <FooterContent />
+
 </template>
 
 <script>

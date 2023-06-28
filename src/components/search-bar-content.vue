@@ -39,6 +39,7 @@
                 style="width: 280px"
                 type="submit"
                 label="Submit"
+                @click="showResult"
         />
     </div>
 
@@ -55,14 +56,30 @@
                     class="w-full md:w-14rem"
             />
         </div>
+        
+       
     </div>
+<div class="flex flex-row-reverse" v-if="result">
+    <ResultContent/>
+</div>
+    
 </template>
 
 <script>
+
+import ResultContent from "../components/result-content.vue";
+
+
+
+
 export default {
     name: "search-bar-content",
+    components: {ResultContent},
+    
+    
     data() {
         return {
+            result:false,
             addres_value: null,
             date_value: null,
             selectedCity: null,
@@ -78,6 +95,15 @@ export default {
             ],
         };
     },
+    
+    methods:{
+        
+        showResult(){
+            this.result=true;
+            console.log(this.result)
+        
+        }
+    }
 };
 </script>
 

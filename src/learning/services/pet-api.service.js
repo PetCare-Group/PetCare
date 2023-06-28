@@ -42,8 +42,8 @@ export class PetApiService {
     return http.post("/pet", data);
   }
 
-  update(name, data) {
-    return http.put(`/pet/${name}`, data);
+  update(id, data) {
+    return http.put(`/pet/${id}`, data);
   }
 
   getPetId(id){

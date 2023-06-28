@@ -1,4 +1,4 @@
-<script setup>
+<script >
 
 import HeaderContent from "@/components/header-content.component.vue";
 import FooterContent from "@/components/footer-content.component.vue";
@@ -9,8 +9,8 @@ export default ({
     components: {HeaderContent, FooterContent},
     data() {
         return {
-            workers: null,
-            selectedUser: {id:0},
+           
+            selectedUser: null,
             name_value:null,
             mail_value:null,
             password_value: null,
@@ -18,20 +18,22 @@ export default ({
             pets:null,
             petService: null,
             id: JSON.parse(this.$route.params.id),
-            hours: [{value:"08:00"},{value:"09:00"} ,{value:"10:00"},{value:"11:00"},{value:"12:00"},{value:"13:00"},{value:"14:00"},{value:"15:00"},{value:"16:00"},{value:"17:00"},{value:"18:00"}],
+            token:JSON.parse(this.$route.params.token),
+           
         }
     },
 
     created() {
 
         this.petService = new PetApiService();
-        this.petService.getWorkerId(this.id).then((response) => {
-            console.log(response.data);
-            this.workers = response.data;
-            console.log(this.workers);
+        this.petService.getUserById(this.id,this.token).then((response) => {
+            console.log(response);
+            this.selectedUser = response;
+            console.log(this.selectedUser);
+            this.sendData(this.selectedUser);
         });
 
-        this.petService.getPet().then((response) => {
+        this.petService.getPet(this.id).then((response) => {
             console.log(response.data);
             this.pets = response.data;
             console.log(this.pets);
@@ -39,10 +41,20 @@ export default ({
     },
 
     methods:{
+        
+       sendData(user){
+           
+           this.name_value= user.firstName;
+           this.last_name_value= user.lastName;
+           this.mail_value=user.mail;
+           
+       }
+        
+    }})
 </script>
 
 <template>
-  <HeaderContent />
+ 
   <div class="container">
     <div class="left-side-container">
       <h1>Mi perfil</h1>
@@ -62,25 +74,25 @@ export default ({
       <div class="name-container" style="display: flex; justify-content: space-between;">
         <div class="name-sub-container">
           <h2>Nombre</h2>
-          <pv-input-text class="txt1"
-                         v-model="value1"
-                         type="text"
-                         placeholder="Carmen"
-                         :style="{
+            <pv-input-text class="txt1"
+                           v-model="value1"
+                           type="text"
+                           :placeholder="name_value"
+                           :style="{
                 'border-radius': '7px',
                 'background-color': '#FFF389',
                 'font-family': 'Inter',
                 'font-size': '14px',
                 'font-weight': 'bold',
                 }"
-          />
+            />
         </div>
         <div class="name-sub-container" style="margin-left: 10%;">
           <h2>Apellido</h2>
           <pv-input-text class="txt1"
                          v-model="value1"
                          type="text"
-                         placeholder="Dueñas Serna"
+                         :placeholder="last_name_value"
                          :style="{
                 'border-radius': '7px',
                 'background-color': '#FFF389',
@@ -128,7 +140,7 @@ export default ({
         <pv-input-text class="txt1"
                        v-model="value1"
                        type="text"
-                       placeholder="carmenduenasserna@gmail.com"
+                       :placeholder="mail_value"
                        :style="{
                 'width': '110%',
                 'border-radius': '7px',
@@ -202,7 +214,7 @@ export default ({
             }">Eliminar cuenta</pv-button>
     </div>
   </div>
-  <FooterContent />
+  
 </template>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-    <HeaderContent />
+    
 
   <div class="card">
     <h2>servicios favoritos</h2>

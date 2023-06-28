@@ -1,5 +1,5 @@
 <template>
-    <HeaderContent/>
+   
     <div class="servicio-container">
       <div class="servicio-info">
         <div class="info__profile">
@@ -87,7 +87,7 @@
               <p  class="text-yellow-500">{{ this.workers.typeService }}</p>
             <p  class="text-yellow-500">S/{{ this.workers.price }}.0</p>
           </div>
-            <router-link :to=" { name: 'booked', params:{id:JSON.stringify(this.id)}}">
+            <router-link :to=" { name: 'booked', params:{id:JSON.stringify(this.id),userId:JSON.stringify(this.userId),token:JSON.stringify(this.token)}}">
           <pv-button label="Reservar" severity="warning" raised />
             </router-link>
         </div>
@@ -120,6 +120,9 @@
         workers: null,
         petService: null,
         id: JSON.parse(this.$route.params.id),
+          userId: JSON.parse(this.$route.params.userId),
+          token: JSON.parse(this.$route.params.token)
+          
       }
     },
     created() {

@@ -5,7 +5,7 @@ import FooterContent from "@/components/footer-content.component.vue";
 </script>
 
 <template>
-  <HeaderContent />
+ 
   <div class="container">
     <div class="left-side-container">
       <h1>Publicar servicio</h1>

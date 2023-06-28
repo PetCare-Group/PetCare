@@ -1,5 +1,5 @@
 <template>
-      <HeaderContent />
+    
 
     <div class="card">
       <h2>Últimos servicios contratados</h2>
@@ -11,7 +11,7 @@
         <pv-column field="precio" header="Precio"></pv-column>
       </pv-data-table>
     </div>
-    <FooterContent />
+    
 
   </template>
   

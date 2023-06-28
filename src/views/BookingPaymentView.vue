@@ -63,7 +63,7 @@ export default ({
 </script>
 
 <template>
-    <header-content/>
+    
     <h1 class="title">Tu reserva</h1>
     <div class="booking-details">
         <div class="booking-info">
@@ -150,8 +150,9 @@ export default ({
         </div>
     </div>
 
+    <router-link to="/reserva-exitosa">
     <pv-button class="make-reservation-button">Realizar reserva</pv-button>
-
+    </router-link>
 </template>
 
 <style scoped>

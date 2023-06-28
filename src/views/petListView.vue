@@ -293,7 +293,7 @@ export default {
         id: displayablePet.id,
         name: displayablePet.name,
         description: displayablePet.description,
-        userId: 1,
+        userId: this.userId,
         castrado: displayablePet.castrado.value == "no castrado"?0 : 1,
 
       };
@@ -317,7 +317,7 @@ export default {
         if (this.pet.id) {
           console.log(this.pet);
           this.pet = this.getStorablePet(this.pet);
-          this.petsService.update(this.pet.name, this.pet).then((response) => {
+          this.petsService.update(this.pet.id, this.pet).then((response) => {
             console.log(response.data.id);
             this.pets[this.findIndexById(response.data.id)] =
                 this.getDisplayablePet(response.data);

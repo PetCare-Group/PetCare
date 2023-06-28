@@ -108,10 +108,11 @@ import axios from "axios";
 import {ref} from "vue";
 
 export default {
-  name: "header-content.component",
+    name: "header-content.component",
     props: {
-     valor_label: String,
+        valor_label: String,
         valor_id: Number,
+        valor_token: String,
     },
 
     data() {
@@ -127,7 +128,7 @@ export default {
                         {
                             label: "Ver perfil",
                             icon: "pi pi-fw pi-align-left",
-                            to: "/my-account",
+                            to: String,
                         },
                         {
                             label: "Mis mascotas",
@@ -152,19 +153,64 @@ export default {
                     ]
 
                 }
+            ],
+
+            buttons: [
+                {
+                    label: "Inicio",
+                    icon: "pi pi-fw pi-file",
+                    to: String,
+                },
+                {
+                    label: "Buscar un servicio",
+                    icon: "pi pi-fw pi-pencil",
+                    to: " ",
+                    items: [
+                        {
+                            label: "Adiestrador",
+                            icon: "pi pi-fw pi-align-left",
+                        },
+                        {
+                            label: "Paseador",
+                            icon: "pi pi-fw pi-align-right",
+                        },
+                        {
+                            label: "Veterinario",
+                            icon: "pi pi-fw pi-align-center",
+                        },
+                    ],
+                },
+                {
+                    label: "Publicar un servicio",
+                    icon: "pi pi-fw pi-user",
+                    to: "/petlist",
+                },
+                {
+                    label: "Ayuda",
+                    to: "/help",
+                    icon: "pi pi-fw pi-calendar",
+                },
             ]
         };
     },
-    
+
     mounted() {
 
         console.log(this.valor_label)
         this.item[0].label = this.valor_label;
-        this.item[0].items[1].to = {name: 'list', params: {id: JSON.stringify(this.valor_id)}
-
+        this.item[0].items[1].to = {name: 'list', params: {id: JSON.stringify(this.valor_id)}};
+        this.item[0].items[0].to = {
+            name: 'account',
+            params: {id: JSON.stringify(this.valor_id), token: JSON.stringify(this.valor_token)}
         };
+        this.buttons[0].to = {
+            name: 'home',
+            params: {id: JSON.stringify(this.valor_id), token: JSON.stringify(this.valor_token)}
+        }
     }
-};
+
+}
+
 </script>
 
 <style scoped></style>
