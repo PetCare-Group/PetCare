@@ -1,4 +1,5 @@
 <template>
+  <HeaderContent :valor_label="this.user.firstName" :valor_id="this.id" :valor_token="this.token"/>
 
   <div>
     <div class="card">
@@ -239,7 +240,7 @@
       </template>
     </pv-dialog>
   </div>
-  <FooterContent />
+  <!-- <FooterContent /> -->
 </template>
 
 <script>
@@ -252,6 +253,10 @@ export default {
   components: {FooterContent, HeaderContent},
   data() {
     return {
+      id: sessionStorage.getItem("userId"),
+            token:sessionStorage.getItem("token"),
+            petService:null,
+            user:null,
       pets: [],
       petDialog: false,
       deletePetDialog: false,
@@ -279,6 +284,13 @@ export default {
       // console.log(this.pets);
     });
     this.initFilters();
+
+        this.petsService.getUserById(this.id,this.token).then((response) => {
+            console.log(this.token);
+            console.log(response);
+            this.user = response;
+            console.log(this.user);
+        });
   },
 
   methods: {

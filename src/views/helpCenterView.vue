@@ -1,5 +1,6 @@
 <template>
-  
+    <HeaderContent :valor_label="this.user.firstName" :valor_id="this.id" :valor_token="this.token"/>
+
   <div class="container">
     <h1 class="main-title">Solucionador de problemas</h1>
 
@@ -56,13 +57,18 @@ export default {
   components: {HeaderContent, FooterContent},
   data() {
     return {
-      id: null,
+      // id: null,
       workers: [],
       worker: {},
       petService: null,
       showForm: false,
       value1: "",
       value2: "",
+      id: sessionStorage.getItem("userId"),
+      token: sessionStorage.getItem("token"),
+      petService:null,
+      user:null
+
     };
   },
   created() {
@@ -71,6 +77,14 @@ export default {
       this.workers = response.data;
       // console.log(this.workers);
     });
+    this.petService = new PetApiService();
+        this.petService.getUserById(this.id,this.token).then((response) => {
+            console.log(this.token);
+            console.log(response);
+            this.user = response;
+            console.log(this.user);
+        });
+
   },
 };
 </script>

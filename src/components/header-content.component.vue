@@ -28,12 +28,10 @@
             v-slot="{ navigate, href }"
             :key="i.label"
           >
-            <pv-button
-              class="p-button-text text-white"
-              :href="href"
-              @click="navigate"
-              >{{ i.label }}</pv-button
-            >
+          <pv-button
+          class="p-button-text text-white"
+          :href="href"
+        >{{ i.label }}</pv-button>
           </router-link>
         </pv-menubar>
       </div>
@@ -52,6 +50,8 @@ import Dropdown from "primevue/dropdown";
 const addres_value = ref(null);
 const date_value = ref(null);
 
+    
+
 const selectedCity = ref();
 const cities = ref([
   { name: "A-Z", code: "NY" },
@@ -68,12 +68,12 @@ const buttons = ref([
   {
     label: "Inicio",
     icon: "pi pi-fw pi-file",
-    to: "/",
+    to: "/home",
   },
   {
     label: "Buscar un servicio",
     icon: "pi pi-fw pi-pencil",
-    to: "/",
+    to: "/home",
     items: [
       {
         label: "Adiestrador",
@@ -115,6 +115,17 @@ export default {
         valor_token: String,
     },
 
+    methods: {
+      logout (){
+        console.log("RMV")
+        sessionStorage.removeItem("userId");
+        sessionStorage.removeItem("token");
+
+        this.$router.push('/log');
+
+      }
+    },
+
     data() {
         return {
             user: null,
@@ -139,6 +150,7 @@ export default {
                             label: "Mis servicios",
                             icon: "pi pi-fw pi-align-right",
                             to: "/mis-servicios"
+                            
                         },
                         {
                             label: "Mis favoritos",
@@ -148,7 +160,9 @@ export default {
                         {
                             label: "Salir",
                             icon: "pi pi-fw pi-align-right",
-                            to: "/log",
+                            // to: "/log",
+                            command: () => this.logout(),
+
                         },
                     ]
 
@@ -159,12 +173,12 @@ export default {
                 {
                     label: "Inicio",
                     icon: "pi pi-fw pi-file",
-                    to: String,
+                    to: "/home",
                 },
                 {
                     label: "Buscar un servicio",
                     icon: "pi pi-fw pi-pencil",
-                    to: " ",
+                    to: "/home",
                     items: [
                         {
                             label: "Adiestrador",

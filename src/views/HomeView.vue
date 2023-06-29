@@ -12,17 +12,23 @@ export default {
 
     data() {
         return {
-            id: JSON.parse(this.$route.params.id),
-            token:JSON.parse(this.$route.params.token),
+            id: sessionStorage.getItem("userId"),
+            token:sessionStorage.getItem("token"),
             petService:null,
             user:null
-
+            
         }
+        // return {
+        //     id: JSON.parse(this.$route.params.id),
+        //     token:JSON.parse(this.$route.params.token),
+        //     petService:null,
+        //     user:null
+            
+        // }
     },
-
+    
     created() {
-
-
+        
         this.petService = new PetApiService();
         this.petService.getUserById(this.id,this.token).then((response) => {
             console.log(this.token);

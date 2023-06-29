@@ -3,18 +3,11 @@
 import { ref } from 'vue';
 </script>
 <script>
-<<<<<<< HEAD
-import {PetApiService} from "../learning/services/pet-api.service";
-import HeaderContent from "../components/header-content.component.vue"
-import { mapState } from 'vuex';
-export default ({
-=======
 import { PetApiService } from "../learning/services/pet-api.service";
 import HeaderContent from "../components/header-content.component.vue";
 
 import PaymentForm from "@/components/payment-form-component.vue"; 
 export default {
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
     name: "BookingPaymentView",
     components: { HeaderContent,PaymentForm },
     data() {
@@ -24,15 +17,6 @@ export default {
             pets: null,
             petService: null,
             id: JSON.parse(this.$route.params.id),
-<<<<<<< HEAD
-            idP: JSON.parse(this.$route.params.idP),
-            serviceType: 'Básica',
-            servicioCost: 0,
-            adicionalesCost: 0,
-            discount: 0,
-            cuotaPetCare: 1.2,
-        }
-=======
             showPaymentForm : ref(false),
       serviceType: "Básica",
       servicioCost: 0,
@@ -50,25 +34,13 @@ export default {
         this.discount +
         this.cuotaPetCare
       );
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
     },
   },
 
-<<<<<<< HEAD
-    computed: {
-
-       
-        
-        
-        totalToPay() {
-            return this.servicioCost + this.adicionalesCost - this.discount + this.cuotaPetCare;
-        },
-=======
   methods: {
     changeServiceType(type) {
       this.serviceType = type;
       this.adicionalesCost = type === "Premium" ? 10 : 0;
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
     },
     onChangeShowPaymentForm(){
       this.showPaymentForm = true;
@@ -80,13 +52,6 @@ export default {
 
   },
 
-<<<<<<< HEAD
-        this.petService.getPetId(this.idP).then((response) => {
-            console.log(response.data);
-            this.pets = response.data;
-            console.log(this.pets);
-        });
-=======
   created() {
     this.petService = new PetApiService();
     this.petService.getWorkerId(this.id).then((response) => {
@@ -94,7 +59,6 @@ export default {
       this.workers = response.data;
       console.log(this.workers);
     });
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
 
     this.petService.getPet().then((response) => {
       console.log(response.data);
@@ -112,18 +76,12 @@ export default {
 </script>
 
 <template>
-<<<<<<< HEAD
-    
-    <h1 class="title">Tu reserva</h1>
-    <div class="booking-details">
-=======
   <header-content />
   <div class="container">
     <div class="container-left">
       <h1 class="title">Tu reserva</h1>
 
       <div class="booking-details">
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
         <div class="booking-info">
           <p class="bold-text">Direccion:</p>
           <p>{{ workers.location }}</p>
@@ -140,13 +98,8 @@ export default {
         </div>
       </div>
 
-<<<<<<< HEAD
-    <div class="pet-section">
-        <h2 class="section-title">Su mascota {{this.pets.name}} </h2>
-=======
       <div class="pet-section">
         <h2 class="section-title">Su mascota</h2>
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
         <div class="pet-image-name">
           <pv-image :src="pets.image" class="pet-image" />
           <div class="pet-name">{{ pets.name }}</div>
@@ -250,11 +203,6 @@ export default {
       </div>
     </div>
 
-<<<<<<< HEAD
-    <router-link to="/reserva-exitosa">
-    <pv-button class="make-reservation-button">Realizar reserva</pv-button>
-    </router-link>
-=======
 </div>
 <pv-button class="make-reservation-button" @click="makeReservation">Realizar reserva</pv-button>
 
@@ -262,7 +210,6 @@ export default {
     <PaymentForm @close="this.showPaymentForm = false" /> <!-- Pasar un evento "close" para cerrar el formulario -->
   </div>
 
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
 </template>
 
 <style scoped>

@@ -99,6 +99,9 @@ export default {
 
             if(id!=null){
                 console.log(" si 2")
+                sessionStorage.setItem("token", `${this.token}`);
+                sessionStorage.setItem("userId", `${this.id}`);
+
                 router.push({ name: 'home', params: { id: JSON.stringify(this.id), token:JSON.stringify(this.token)  } });
 
             }

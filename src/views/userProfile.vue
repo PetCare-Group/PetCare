@@ -1,7 +1,6 @@
 <script >
 
 import HeaderContent from "@/components/header-content.component.vue";
-<<<<<<< HEAD
 import FooterContent from "@/components/footer-content.component.vue";
 import {PetApiService} from "../learning/services/pet-api.service";
 
@@ -10,7 +9,11 @@ export default ({
     components: {HeaderContent, FooterContent},
     data() {
         return {
-           
+           id: sessionStorage.getItem("userId"),
+            token:sessionStorage.getItem("token"),
+            petService:null,
+            user:null,
+
             selectedUser: null,
             name_value:null,
             mail_value:null,
@@ -18,8 +21,8 @@ export default ({
            last_name_value: null,
             pets:null,
             petService: null,
-            id: JSON.parse(this.$route.params.id),
-            token:JSON.parse(this.$route.params.token),
+            // id: JSON.parse(this.$route.params.id),
+            // token:JSON.parse(this.$route.params.token),
            
         }
     },
@@ -30,6 +33,7 @@ export default ({
         this.petService.getUserById(this.id,this.token).then((response) => {
             console.log(response);
             this.selectedUser = response;
+            this.user = response;
             console.log(this.selectedUser);
             this.sendData(this.selectedUser);
         });
@@ -52,12 +56,11 @@ export default ({
        }
         
     }})
-=======
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
 </script>
 
 <template>
- 
+   <HeaderContent :valor_label="this.user.firstName" :valor_id="this.id" :valor_token="this.token"/>
+
   <div class="container">
     <div class="left-side-container">
       <h1>Mi perfil</h1>
@@ -217,10 +220,7 @@ export default ({
             }">Eliminar cuenta</pv-button>
     </div>
   </div>
-<<<<<<< HEAD
   
-=======
->>>>>>> ab18fcba14686d291628c8e176204c2e69bcc3b0
 </template>
 
 <style scoped>

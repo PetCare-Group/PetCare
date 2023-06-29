@@ -1,4 +1,5 @@
 <template>
+  <HeaderContent :valor_label="this.user.firstName" :valor_id="this.id" :valor_token="this.token"/>
  
   <div class="container">
     <div class="left-side-container">
@@ -107,6 +108,7 @@
 
 <script>
 import HeaderContent from "@/components/header-content.component.vue";
+import { PetApiService } from "../learning/services/pet-api.service";
 
 export default {
   components: { HeaderContent },
@@ -116,7 +118,27 @@ export default {
     paseador: false,
     adiestrador: false,
     entrenador: false,
+ 
+            id: sessionStorage.getItem("userId"),
+            token:sessionStorage.getItem("token"),
+            petService:null,
+            user:null
+            
+      
   }),
+  created() {
+        
+        this.petService = new PetApiService();
+        this.petService.getUserById(this.id,this.token).then((response) => {
+            console.log(this.token);
+            console.log(response);
+            this.user = response;
+            console.log(this.user);
+        });
+
+
+    }
+
 };
 </script>
 
