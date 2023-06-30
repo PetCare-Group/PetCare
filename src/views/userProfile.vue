@@ -64,7 +64,7 @@ export default ({
   <div class="container">
     <div class="left-side-container">
       <h1>Mi perfil</h1>
-      <img src="src/assets/logo.svg" alt="img1">
+      <img src="/src/assets/logo.svg" alt="img1">
       <pv-button
           severity="warning"
 
