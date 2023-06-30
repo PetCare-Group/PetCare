@@ -14,8 +14,8 @@
                 <div class="info__profile__services  ">
                     <p class="text-yellow-500 font-bold text-lg">Servicios</p>
                     <div>
-                        <img src="../assets/service-content/image 7.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px;  margin-right: 12px;">
-                        <img src="../assets/service-content/Group 9.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px;  ">
+                        <img src="/assets/service-content/image 7.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px;  margin-right: 12px;">
+                        <img src="/assets/service-content/Group 9.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px;  ">
                     </div>
                 </div>
                 
@@ -45,7 +45,7 @@
                     <h3 class="text-yellow-500 font-bold">Valoraciones</h3>
                     <div class="servicio-info__coments__cards">
                         <div>
-                            <img src="../assets/service-content/image 20.png" alt="" width="60px" height="60px">
+                            <img src="/assets/service-content/image 20.png" alt="" width="60px" height="60px">
                             <div>
                                 <span>Estrellas</span>
                             </div>
@@ -53,7 +53,7 @@
                             <p class="text-yellow-500 text-xs">Serviciocontratado el <br> <span>12 de marzo del 2013</span></p>
                         </div>
                         <div>
-                            <img src="../assets/service-content/image 20.png" alt="" width="60px" height="60px">
+                            <img src="/assets/service-content/image 20.png" alt="" width="60px" height="60px">
                             <div>
                                 <span>Estrellas</span>
                             </div>
