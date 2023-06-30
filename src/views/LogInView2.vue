@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <div class="image-container">
-      <img src="src/components/img/LogBackground.jpg" alt="Login Image" class="login-image">
+      <img src="/src/components/img/LogBackground.jpg" alt="Login Image" class="login-image">
       <div class="image-text">
         <h1 class="h1-bg">PetCare</h1>
         <p class="p-bg">Una comunidad creada especialmente para los amantes de las mascotas</p>
