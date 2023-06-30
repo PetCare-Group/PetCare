@@ -21,8 +21,8 @@
           <div class="info__profile__services">
             <p class="text-yellow-500 font-bold text-lg">Servicios</p>
             <div>
-              <img src="/assets/service-content/image 7.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px; margin-right: 12px;">
-              <img src="/assets/service-content/Group 9.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px;">
+              <img src="/assets/service-content/image7.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px; margin-right: 12px;">
+              <img src="/assets/service-content/Group9.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px;">
             </div>
           </div>
         </div>
@@ -33,15 +33,15 @@
             <p class="text-yellow-500">Continuar leyendo</p>
           </div>
           <div class="servicio-info__about__detail">
-            <img src="./../assets/service-content/icon _pills_.png" height="20px" style="margin-right: 16px; margin-left: 8px;" alt="">
+            <img src="./../assets/service-content/icon_pills_.png" height="20px" style="margin-right: 16px; margin-left: 8px;" alt="">
             <span>Aplico medicina oral</span>
           </div>
           <div class="servicio-info__about__detail">
-            <img src="./../assets/service-content/icon _white cat_.png" height="20px" style="margin-right: 12px;" alt="">
+            <img src="./../assets/service-content/icon_whitecat_.png" height="20px" style="margin-right: 12px;" alt="">
             <span>Acepto a gatos</span>
           </div>
           <div class="servicio-info__about__detail">
-            <img src="./../assets/service-content/icon _heart rate_.png" height="20px" style="margin-right: 12px;" alt="">
+            <img src="./../assets/service-content/icon_heartrate_.png" height="20px" style="margin-right: 12px;" alt="">
             <span>Brindo cuidado para discapacitados</span>
           </div>
         </div>
@@ -50,14 +50,14 @@
             <h3 class="text-yellow-500 font-bold">Valoraciones</h3>
             <div class="servicio-info__coments__cards">
               <div>
-                <img src="/assets/service-content/image 20.png" alt="" width="60px" height="60px">
+                <img src="/assets/service-content/image20.png" alt="" width="60px" height="60px">
                 <div>
                   <span>Estrellas</span>
                 </div>
                 <p class="text-yellow-500 text-xs">Servicio contratado el <br><span>12 de marzo del 2013</span></p>
               </div>
               <div>
-                <img src="/assets/service-content/image 20.png" alt="" width="60px" height="60px">
+                <img src="/assets/service-content/image20.png" alt="" width="60px" height="60px">
                 <div>
                   <span>Estrellas</span>
                 </div>
@@ -69,11 +69,11 @@
             <h3 class="text-yellow-500 font-bold">Comentarios</h3>
             <div class="servicio-info__coments__cards">
               <div>
-                <img src="./../assets/service-content/image 20.png" height="60px" style="margin-right: 12px;" alt="">
+                <img src="./../assets/service-content/image20.png" height="60px" style="margin-right: 12px;" alt="">
                 <p class="text-yellow-500">Servicio contratado el <br><span>12 de marzo del 2013</span></p>
               </div>
               <div>
-                <img src="./../assets/service-content/image 20.png" height="60px" style="margin-right: 12px;" alt="">
+                <img src="./../assets/service-content/image20.png" height="60px" style="margin-right: 12px;" alt="">
                 <p class="text-yellow-500">Servicio contratado el <br><span>12 de marzo del 2013</span></p>
               </div>
             </div>
