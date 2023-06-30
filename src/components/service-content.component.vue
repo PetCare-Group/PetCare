@@ -21,8 +21,8 @@
           <div class="info__profile__services">
             <p class="text-yellow-500 font-bold text-lg">Servicios</p>
             <div>
-              <img src="/assets/service-content/image7.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px; margin-right: 12px;">
-              <img src="/assets/service-content/Group9.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px;">
+              <img src="/src/assets/service-content/image7.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px; margin-right: 12px;">
+              <img src="/src/assets/service-content/Group9.png" alt="" width="50" style="border: 1px solid #FBB847; border-radius: 50%; padding: 8px;">
             </div>
           </div>
         </div>
@@ -50,14 +50,14 @@
             <h3 class="text-yellow-500 font-bold">Valoraciones</h3>
             <div class="servicio-info__coments__cards">
               <div>
-                <img src="/assets/service-content/image20.png" alt="" width="60px" height="60px">
+                <img src="/src/assets/service-content/image20.png" alt="" width="60px" height="60px">
                 <div>
                   <span>Estrellas</span>
                 </div>
                 <p class="text-yellow-500 text-xs">Servicio contratado el <br><span>12 de marzo del 2013</span></p>
               </div>
               <div>
-                <img src="/assets/service-content/image20.png" alt="" width="60px" height="60px">
+                <img src="/src/assets/service-content/image20.png" alt="" width="60px" height="60px">
                 <div>
                   <span>Estrellas</span>
                 </div>
@@ -69,11 +69,11 @@
             <h3 class="text-yellow-500 font-bold">Comentarios</h3>
             <div class="servicio-info__coments__cards">
               <div>
-                <img src="./../assets/service-content/image20.png" height="60px" style="margin-right: 12px;" alt="">
+                <img src="/src/assets/service-content/image20.png" height="60px" style="margin-right: 12px;" alt="">
                 <p class="text-yellow-500">Servicio contratado el <br><span>12 de marzo del 2013</span></p>
               </div>
               <div>
-                <img src="./../assets/service-content/image20.png" height="60px" style="margin-right: 12px;" alt="">
+                <img src="/src/assets/service-content/image20.png" height="60px" style="margin-right: 12px;" alt="">
                 <p class="text-yellow-500">Servicio contratado el <br><span>12 de marzo del 2013</span></p>
               </div>
             </div>
