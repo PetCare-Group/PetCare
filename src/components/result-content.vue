@@ -16,7 +16,7 @@
            
           >
             <img
-              src="src\assets\logo.svg"
+              src="/src/assets/logo.svg"
               class="user-avatar"
               alt="Avatar de usuario"
               width="20%"
