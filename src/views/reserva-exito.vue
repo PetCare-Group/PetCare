@@ -11,7 +11,7 @@ let showPaymentForm = ref(false);
  
 
   <div class="confirmation-container">
-    <img src="src/assets/logo.svg" alt="img1">
+    <img src="/src/assets/logo.svg" alt="img1">
     <h1>Tu reserva se realizó con éxito</h1>
     <p>Podrás visualizar la información de tu reserva en Mis Servicios. </p>
     <pv-button
